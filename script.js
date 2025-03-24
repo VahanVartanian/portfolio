@@ -1,4 +1,4 @@
-// Define global flag for index page
+// Global flag for index page
 const isIndexPage =
   window.location.pathname === "/" ||
   window.location.pathname.endsWith("index.html");
@@ -14,17 +14,19 @@ AOS.init({
 
 // Animate flagText spans with GSAP
 const flagText = document.querySelectorAll(".flag-text span");
-gsap.to(flagText, {
-  y: 20,
-  rotation: 10,
-  ease: "sine.inOut",
-  stagger: {
-    each: 0.1,
-    yoyo: true,
-    repeat: -1,
-  },
-  duration: 1.5,
-});
+if (flagText.length > 0) {
+  gsap.to(flagText, {
+    y: 20,
+    rotation: 10,
+    ease: "sine.inOut",
+    stagger: {
+      each: 0.1,
+      yoyo: true,
+      repeat: -1,
+    },
+    duration: 1.5,
+  });
+}
 
 // Disable automatic scroll restoration
 if ("scrollRestoration" in history) {
@@ -33,7 +35,7 @@ if ("scrollRestoration" in history) {
 
 window.onload = () => {
   if (isIndexPage) {
-    // On index: clear the flag so the full animation runs.
+    // On index page: clear the flag so the full animation runs.
     localStorage.removeItem("skipAnimation");
     window.scrollTo(0, 0);
     if (window.innerWidth <= 768) {
@@ -45,8 +47,9 @@ window.onload = () => {
         document.fonts.ready,
         new Promise((resolve) => {
           const video = document.querySelector("video");
-          if (video.readyState >= 3) resolve();
-          else video.addEventListener("loadeddata", resolve);
+          if (video && video.readyState >= 3) resolve();
+          else if (video) video.addEventListener("loadeddata", resolve);
+          else resolve();
         }),
       ]).then(() => {
         initializeScrollTriggers();
@@ -111,7 +114,7 @@ function initializeScrollTriggers() {
     scrollTrigger: {
       trigger: "#video-section",
       start: "top top",
-      end: "+=50",  // shorter scroll range for quicker opacity change
+      end: "+=50", // shorter scroll range for quicker opacity change
       scrub: 1,
     },
   });
@@ -121,70 +124,53 @@ function animateLogoAndNav() {
   console.log("Animating logo and navigation");
 }
 
-// Plugin initializations
-
+// jQuery-based plugin initializations
 $(document).ready(function () {
-  $(".slider").slick({
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 5,
-    adaptiveHeight: true,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 768, // screens smaller than 768px
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
-});
-
-$(document).ready(function () {
-  $(".slider-2").slick({
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    adaptiveHeight: true,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 2,
+  // Initialize Slick sliders only if the elements exist and the slick function is available
+  if ($('.slider').length > 0 && typeof $.fn.slick === 'function') {
+    $('.slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 5,
+      adaptiveHeight: true,
+      arrows: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
         },
-      },
-    ],
-  });
-});
-
-lightbox.option({
-  resizeDuration: 200,
-  wrapAround: true,
-  fadeDuration: 300,
-  imageFadeDuration: 300,
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize Masonry layout
-  const masonryGrid = document.querySelector(".masonry-grid");
-  if (masonryGrid) {
-    new Masonry(masonryGrid, {
-      itemSelector: ".masonry-item",
-      columnWidth: ".masonry-item",
-      percentPosition: true,
-      gutter: 10,
+      ],
     });
   }
 
+  if ($('.slider-2').length > 0 && typeof $.fn.slick === 'function') {
+    $('.slider-2').slick({
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      adaptiveHeight: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+      ],
+    });
+  }
+
+  // Menu toggle for mobile navigation
   const menuToggle = document.querySelector(".js-menu-toggle");
   const menu = document.querySelector(".js-menu");
   const menuClose = document.querySelector(".js-menu-close");
@@ -197,12 +183,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Set initial transform for video section text and image
   const videoSectionText = document.querySelector("#video-section h2");
   const videoSectionImage = document.querySelector("#video-section img");
   if (videoSectionText) videoSectionText.style.transform = "translateY(0)";
-  if (videoSectionImage)
-    videoSectionImage.style.transform = "translateY(0)";
-  
+  if (videoSectionImage) videoSectionImage.style.transform = "translateY(0)";
+
   // Ensure the arrow element does not block clicks.
   const arrow = document.querySelector("#arrow");
   if (arrow) {
@@ -210,6 +196,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Initialize Lightbox only if the library is loaded
+if (typeof lightbox !== 'undefined' && typeof lightbox.option === 'function') {
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true,
+    fadeDuration: 300,
+    imageFadeDuration: 300,
+  });
+}
+
+// Masonry initialization on DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  const masonryGrid = document.querySelector(".masonry-grid");
+  if (masonryGrid && typeof Masonry !== 'undefined') {
+    new Masonry(masonryGrid, {
+      itemSelector: ".masonry-item",
+      columnWidth: ".masonry-item",
+      percentPosition: true,
+      gutter: 10,
+    });
+  }
+});
+
+// Scroll event listener for parallax effect on the video section
 window.addEventListener("scroll", function () {
   const videoSection = document.querySelector("#video-section");
   if (!videoSection) return;
@@ -231,6 +241,7 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// GSAP parallax effects for elements with .parallax-image and .parallax-text
 document.addEventListener("DOMContentLoaded", function () {
   gsap.utils.toArray(".parallax-image").forEach((layer) => {
     const depth = layer.dataset.speed;
@@ -265,16 +276,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("src/cta.svg")
-      .then((response) => response.text())
-      .then((svgContent) => {
-        document.querySelectorAll(".svg-container").forEach((container) => {
-          container.innerHTML = svgContent;
-        });
-      })
-      .catch((err) => console.error("Error loading SVG:", err));
-  });
-
-
+// Fetch and insert SVG content into elements with the .svg-container class
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("src/cta.svg")
+    .then((response) => response.text())
+    .then((svgContent) => {
+      document.querySelectorAll(".svg-container").forEach((container) => {
+        container.innerHTML = svgContent;
+      });
+    })
+    .catch((err) => console.error("Error loading SVG:", err));
+});
