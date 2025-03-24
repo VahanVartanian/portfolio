@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn more about Vahan Vartanian, a Vancouver-based graphic designer specializing in web and branding design. Discover his skills, experience, and the tools he uses to create impactful digital and print media."
+    />
+    <meta
+      name="keywords"
+      content="Vahan Vartanian, graphic designer, branding, web design, Vancouver, BCIT New Media, graphic design portfolio, digital art, Procreate, Photoshop, Illustrator"
+    />
+    <meta name="author" content="Vahan Vartanian" />
+    <meta property="og:title" content="About Vahan Vartanian | Graphic Designer | Graphic & Web Design" />
+    <meta
+      property="og:description"
+      content="Explore Vahan Vartanian's journey as a graphic designer in Vancouver, with a focus on branding, web design, and digital art. See the tools and skills that define his work."
+    />
+    <meta property="og:image" content="src/mylogo2.jpg" />
+    <meta property="og:url" content="http://www.vahanvartanian.com/about.html" />
+    <meta property="og:type" content="website" />
+    <title>About Me | Vahan Vartanian |</title>
+
+    <link rel="icon" type="image/x-icon" href="/src/mylogo-palepurple.png" />
+
+    <!-- Tailwind and Other Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+    <div id="wrapper">
+      <div id="content">
+        <!-- VIDEO SECTION -->
+        <section id="video-section" class="relative h-screen z-10">
+          <div class="absolute inset-0 overflow-hidden">
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+              <source src="src/sky.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <div class="absolute inset-0 bg-black/40 z-30">
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-20"
+            />
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center z-[99]">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">about me.</h2>
+          </div>
+          <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4">
+            <!-- Logo on the left -->
+            <a href="index.html" class="flex items-center">
+              <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto">
+            </a>
+
+            <!-- Desktop Navigation on the right -->
+            <nav class="hidden md:block">
+              <ul class="flex items-center gap-12 pr-40">
+                <li>
+                  <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
+                </li>
+                <li>
+                  <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
+                </li>
+                <li>
+                  <a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- Mobile Menu Toggle (visible on mobile only) -->
+            <div class="md:hidden">
+              <label for="menu-toggle" class="cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              </label>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <input type="checkbox" id="menu-toggle" class="hidden">
+            <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+              <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </label>
+              <ul class="flex flex-col items-center space-y-6 text-lg">
+                <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+                <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+                <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+              </ul>
+            </nav>
+          </header>
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+            <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
+          </div>
+        </section>
+        <!-- END VIDEO SECTION -->
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="relative bg-[#5D576B]  mobile-negative-top">
+          <!-- 1) WAVE behind everything at z-5 -->
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+            
+            <img
+              src="src/divider.png"
+              alt="Divider"
+              class="w-full h-auto"
+            />
+          </div>
+
+          <!-- 2) OVERLAY at z-6, pointer-events-none so it doesn't block clicks -->
+          <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-20 rotate-180"
+            />
+          </div>
+
+          <!-- 3) ABOUT CONTENT at z-10 -->
+          <div class="relative z-10 max-w-6xl mx-auto text-center lg:bottom-40 px-4 md:px-8">
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center h-full">
+              <img
+                src="src/me.jpg"
+                alt="me"
+                class="w-64 h-auto lg:w-96 shadow-xl mb-8 lg:mb-0 rounded-lg"
+              />
+              <div class="lg:ml-8 max-w-md text-center lg:text-left">
+                <p class="rock-font text-md lg:text-lg leading-relaxed pt-4">
+                  I'm a graphic and web designer based in Vancouver. I like to create engaging, effective designs for both digital and print media. My goal is to make designs that not only look awesome but clearly share your message and vision.
+                </p>
+
+                <p class="rock-font text-md lg:text-lg leading-relaxed pt-6">
+                  Approaching my graduation at BCIT, I have perfected my skills in various design and development tools. My journey through the New Media program has given me extensive knowledge in a variety of development and design tools, from branding to web design. 
+                </p>
+
+                <div class="arrow-container mt-12 pt-[58px]">
+                  <img src="src/up-arrow-svgrepo-com.svg" alt="Down Arrow" class="arrow-icon mx-auto rotate-180 w-16 pt-24">
+                </div>
+               
+              </div>
+              
+            </div>
+          </div>
+        </section>
+        <!-- END ABOUT SECTION -->
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="relative bg-[#202020] w-full py-16">
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img
+            src="src/overlay.png"
+            alt="Overlay"
+            class="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
+          <div class="relative z-30 max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">my skills.</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              <!-- Example Skill Block -->
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/photoshop.png"
+                  alt="photoshop"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Adobe Photoshop
+                </p>
+              </div>
+
+              <!-- Repeat similar blocks for other skills -->
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/illustrator.png"
+                  alt="illustrator"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Adobe Illustrator
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/aftereffects.png"
+                  alt="after-effects"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Adobe After Effects
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/procreate.png"
+                  alt="procreate"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Procreate
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/html.png"
+                  alt="html5"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  HTML5
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/css.png"
+                  alt="css3"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  CSS3
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/javascript.png"
+                  alt="javascript"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  JavaScript
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/react.png"
+                  alt="react"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  React
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/responsive-design.png"
+                  alt="responsive-design"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Responsive Design
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/seo.png"
+                  alt="seo"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  SEO
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/github.png"
+                  alt="github"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  GitHub
+                </p>
+              </div>
+
+              <div class="flex flex-col items-center group">
+                <img
+                  src="src/figma.png"
+                  alt="figma"
+                  class="w-32 md:w-36 object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <p
+                  class="text-sm md:text-md text-[#FDE2FF] mt-2 rock-font transition-transform
+                         duration-300 group-hover:scale-105"
+                >
+                  Figma
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="about-continued" class="relative bg-[#202020] w-full pt-6 sm:pt-16 md:pt-12 py-16">
+
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-20 sm:opacity-30 rotate-180 sm:rotate-0">
+
+
+  
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <div class="flex flex-col md:gap-12 lg:flex-row items-center justify-center mt-16 gap-8">
+  
+  
+              <div class="max-w-md text-center lg:text-left">
+                <p class="rock-font text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6">
+                  I’ve always been drawn to computers and digital media from a young age. My curiosity for creating things
+                  on the screen led me to teach myself Photoshop when I was just 10 years old. I spent countless hours
+                  experimenting with digital tools, learning how to turn my young ideas into visuals. That early passion has only
+                  grown stronger over the years, shaping my skills in both graphic design and web development, and pushing
+                  me to constantly improve and expand my creative abilities.
+                </p>
+              </div>
+  
+  
+              <div class="text-center">
+                <img src="src/young-me-and-dad.png" alt="my dad and i"
+                  class="w-full sm:w-72 md:w-[400px] lg:w-[500px] h-auto shadow-lg">
+                <p class="text-[#FDE2FF] mt-4 rock-font">My Dad and I circa 2010.</p>
+              </div>
+  
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <div
+            class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8"
+          >
+            <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0" />
+            <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+              <p class="text-black text-lg sm:text-2xl md:text-3xl">
+                COLLABORATIONS & <br />
+                INQUIRIES - ALWAYS WELCOME
+              </p>
+              <div class="flex gap-4 sm:gap-6 mt-4">
+                <a
+                  href="https://instagram.com/vahvn"
+                  class="text-black text-sm sm:text-base hover:underline"
+                  >Instagram</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca"
+                  class="text-black text-sm sm:text-base hover:underline"
+                  >LinkedIn</a
+                >
+                <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline"
+                  >Email</a
+                >
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <script src="script.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

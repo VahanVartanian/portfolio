@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-2",
+  "version": "1.0.0",
+  "description": "Portfolio project for term 4",
+  "main": "index.js",
+  "dependencies": {
+    "tailwindcss": "^3.0.0",
+    "gsap": "^3.11.5",
+    "aos": "^2.3.4",
+    "jquery": "^3.6.0",
+    "slick-carousel": "^1.8.1",
+    "lightbox2": "^2.11.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Vahan Vartanian",
+  "license": "ISC"
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG Stroke Reveal Test</title>
+    <style>
+      /* Basic styling for our test link */
+      .nav-link {
+        position: relative;
+        padding: 20px 50px; /* Adjust so text sits nicely within the oval */
+        font-size: 24px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        margin: 20px;
+      }
+      /* Container for the injected SVG */
+      .svg-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      /* Target the SVG path inside our container */
+      .svg-container svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .svg-container svg path {
+        stroke: #8884FF;           /* Stroke color */
+        stroke-width: 5;            /* Bigger stroke width */
+        fill: none;
+        stroke-linecap: round;      /* Makes stroke ends rounded */
+        /* Hide the stroke by setting dash properties */
+        stroke-dasharray: 1000;      /* Adjust if needed for your SVG's length */
+        stroke-dashoffset: 1000;
+        transition: stroke-dashoffset 0.5s ease; /* Faster animation (0.5s) */
+      }
+      /* When hovering over the link text, reveal the stroke */
+      .nav-link:hover .svg-container svg path {
+        stroke-dashoffset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Test navigation link; the span will hold the injected SVG -->
+    <a href="#" class="nav-link">
+      Test Link
+      <span class="svg-container"></span>
+    </a>
+
+    <script>
+      // Load the SVG dynamically from src/cta.svg and inject it into every .svg-container
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("src/cta.svg")
+          .then((response) => response.text())
+          .then((svgContent) => {
+            document.querySelectorAll(".svg-container").forEach((container) => {
+              container.innerHTML = svgContent;
+            });
+          })
+          .catch((err) => console.error("Error loading SVG:", err));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Vahan. A Brand is a skateboarding brand that focuses on bold graphic design, with a heavy metal aesthetic. Explore the project’s process and final products, created using Procreate, Photoshop, and Illustrator.">
+  <meta name="keywords"
+    content="Vahan brand, graphic design, skateboarding, Procreate, Photoshop, Illustrator, bold design, skateboarding culture">
+  <meta name="author" content="Vahan Vartanian">
+  <meta property="og:title" content="Vahan. A Brand | Vahan Vartanian">
+  <meta property="og:description"
+    content="Vahan. A Brand is a skateboarding brand that focuses on bold graphic design, with a heavy metal aesthetic. Explore the project’s process and final products, created using Procreate, Photoshop, and Illustrator.">
+  <meta property="og:image" content="src/portfolio-thumbnail.jpg">
+  <meta property="og:url" content="http://www.vahanvartanian.com/vahan-a-brand.html">
+  <meta property="og:type" content="website">
+
+  <title>vahan. a brand | Vahan Vartanian</title>
+  <link rel="icon" type="image/x-icon" href="/src/mylogo-palepurple.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+  <div id="wrapper">
+    <div id="content">
+
+      <section id="video-section" class="relative h-screen z-10">
+        <div class="absolute inset-0 overflow-hidden">
+          <img class="w-full h-full object-cover scale-105  brightness-50"
+          src="src/vahan-brand-logo.png">
+           
+        </img>
+        </div>
+
+
+        <div class="absolute inset-0 bg-black/40 z-10">
+          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover lg:opacity-30 opacity-[26%]">
+        </div>
+
+
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">vahan. a brand.</h2>
+        </div>
+
+        <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4">
+          <!-- Logo on the left -->
+          <a href="index.html" class="flex items-center">
+            <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto">
+          </a>
+
+          <!-- Desktop Navigation on the right -->
+          <nav class="hidden md:block">
+            <ul class="flex items-center gap-12 pr-40">
+              <li>
+                <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
+              </li>
+              <li>
+                <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Mobile Menu Toggle (visible on mobile only) -->
+          <div class="md:hidden">
+            <label for="menu-toggle" class="cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </label>
+          </div>
+
+          <!-- Mobile Navigation Menu -->
+          <input type="checkbox" id="menu-toggle" class="hidden">
+          <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+            <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
+            <ul class="flex flex-col items-center space-y-6 text-lg">
+              <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+              <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+              <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+            </ul>
+          </nav>
+
+          
+        </header>
+
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto">
+        </div>
+      </section>
+
+
+      <section id="project-detail-3" class="relative bg-[#5D576B] pt-2 lg:pt-24 pb-16 z-5">
+
+        <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
+          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-30 rotate-180">
+        </div>
+
+        
+
+        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+
+
+          <div class="flex flex-row justify-center items-center gap-8 mt-8">
+
+            <div class="flex flex-col items-center">
+              <img src="src/procreate.png" alt="Procreate" class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Procreate</p>
+            </div>
+
+
+            <div class="flex flex-col items-center">
+              <img src="src/photoshop.png" alt="Photoshop" class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Photoshop</p>
+            </div>
+
+
+            <div class="flex flex-col items-center">
+              <img src="src/illustrator.png" alt="Illustrator"
+                class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Illustrator</p>
+            </div>
+          </div>
+
+
+          <div class="flex flex-col md:flex-row items-center justify-center mt-16 gap-8">
+
+            <div class="group">
+              <img src="src/vahan-brand-logo.png" alt="Vahan Graphic"
+                class="w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] h-auto shadow-xl">
+            </div>
+
+
+            <div class="max-w-full sm:max-w-md text-center md:text-left">
+              <p class="rock-font text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6 md:pb-10">
+                The Vahan branding project focuses on creating a visual identity for a makeshift skateboarding brand.
+                With inspiration drawn from urban culture and heavy metal aesthetics, the goal of the project was to
+                portray the rebellious spirit of skateboarding through graphic design and a consistent style guide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section id="process" class="relative bg-[#202020] w-full py-32">
+        <div class="absolute top-0 left-0 w-full overflow-hidden z-5">
+          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto rotate-180">
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto">
+        </div>
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="src/overlay.png" alt="Overlay"
+          class="absolute inset-0 w-full h-full object-cover opacity-[30%]">
+
+
+        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+
+          <h2 class="text-3xl md:text-4xl font-bold mb-8">process.</h2>
+
+
+          <div class="flex flex-col md:flex-row items-start justify-between gap-8 mt-12">
+
+            <div class="w-full md:w-1/2 text-center md:text-left">
+              <p class="text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                I drew inspiration from skateboarding culture, urban art, and heavy metal music to shape the brand’s
+                look. While researching similar skate brands, I noticed trends like monochrome palettes, bold
+                typography, and gritty textures. However, many lacked custom, hand-drawn lettering with unique
+                influences. To stand out, I created sharp, angular typography inspired by urban and metal styles, making
+                the logo more intense and memorable than others.
+              </p>
+            </div>
+
+
+            <div class="w-full md:w-1/2 text-center md:text-left">
+              <p class="text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                I designed a range of apparel and accessories, including hats, tote bags, T-shirts, and hoodies, all
+                carefully made in Procreate and Photoshop. Each design was drawn by hand and followed the brand’s style
+                guide to follow a consistent aesthetic. These products were then launched on the <a
+                  href="project-detail-1.html" class="nav-link underline">Vahan website’s</a> product page.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="end-product" class="relative bg-[#5D576B] w-full py-12">
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <img src="src/overlay.png" alt="Overlay"
+          class="absolute inset-0 w-full h-full object-cover opacity-[43%] z-10">
+
+        <div class="relative z-30 max-w-6xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8">end product.</h2>
+
+
+          <div class="slider w-full mt-8">
+            <div>
+              <a href="src/chaos hoodie.png" data-lightbox="gallery" data-title="Chaos Hoodie">
+                <img src="src/chaos hoodie.png" alt="chaos-hoodie" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/chaos tee.png" data-lightbox="gallery" data-title="Chaos Tee">
+                <img src="src/chaos tee.png" alt="chaos-tee" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/Doctor Hood.png" data-lightbox="gallery" data-title="Doctor Hood">
+                <img src="src/Doctor Hood.png" alt="doctor-hood" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/Doctor Tee.png" data-lightbox="gallery" data-title="Doctor Tee">
+                <img src="src/Doctor Tee.png" alt="doctor-tee" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/logo hood.png" data-lightbox="gallery" data-title="Logo Hood">
+                <img src="src/logo hood.png" alt="logo-hood" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/logo tee.png" data-lightbox="gallery" data-title="Logo Tee">
+                <img src="src/logo tee.png" alt="logo-tee" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/metal tee.png" data-lightbox="gallery" data-title="Metal Tee">
+                <img src="src/metal tee.png" alt="metal-tee" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/Tote_Bag_Mockup.png" data-lightbox="gallery" data-title="Tote Bag">
+                <img src="src/Tote_Bag_Mockup.png" alt="tote-bag" class="rounded-lg">
+              </a>
+            </div>
+            <div>
+              <a href="src/Hat_Mockup.png" data-lightbox="gallery" data-title="Hat">
+                <img src="src/Hat_Mockup.png" alt="hat" class="rounded-lg">
+              </a>
+            </div>
+          
+          <div>
+            <a href="src/ladybug mockup white.png" data-lightbox="gallery" data-title="Hat">
+              <img src="src/ladybug mockup white.png" alt="ladybug tee" class="rounded-lg">
+            </a>
+          </div>
+          <div>
+            <a href="src/ladybug mockup.png" data-lightbox="gallery" data-title="Hat">
+              <img src="src/ladybug mockup.png" alt="lady bug tee black" class="rounded-lg">
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
+          <a href="project-detail-1.html" class="nav-link flex-1 text-center pr-4 sm:pr-8 md:pr-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
+          </a>
+          <a href="project-detail-4.html" class="nav-link flex-1 text-center pl-4 sm:pl-8 md:pl-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">next<br>project</h2>
+          </a>
+        </div>
+
+        <div class="flex justify-center py-8">
+          <a href="#top" class="nav-link text-[#FDE2FF] text-3xl hover:text-[#8884FF] transition-colors duration-300 z-[9999]">
+            back to top.
+            
+          </a>
+        </div>
+      </section>
+
+
+      <footer>
+        <div
+          class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8">
+          <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0">
+          <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+            <p class="text-black text-lg sm:text-2xl md:text-3xl">COLLABORATIONS & <br> INQUIRIES - ALWAYS WELCOME</p>
+            <div class="flex gap-4 sm:gap-6 mt-4">
+              <a href="https://instagram.com/vahvn"
+                class="text-black text-sm sm:text-base hover:underline">Instagram</a>
+              <a href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca"
+                class="text-black text-sm sm:text-base hover:underline">LinkedIn</a>
+              <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline">Email</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="script.js"></script>
+</body>
+
+</html>

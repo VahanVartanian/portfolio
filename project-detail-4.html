@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Panic Decks is a fingerboard brand focusing on bold and edgy graphics. View the project process and final product created using Procreate, Photoshop, and Illustrator.">
+  <meta name="keywords"
+    content="Panic Decks, fingerboard, graphic design, Procreate, Photoshop, Illustrator, skateboarding, edgy design">
+  <meta name="author" content="Vahan Vartanian">
+  <meta property="og:title" content="Panic Decks | Fingerboard Graphics | Vahan Vartanian">
+  <meta property="og:description"
+    content="Panic Decks is a fingerboard brand focusing on bold and edgy graphics. View the project process and final product created using Procreate, Photoshop, and Illustrator.">
+  <meta property="og:image" content="src/mylogo2.jpg">
+  <meta property="og:url" content="http://www.vahanvartanian.com/panic-decks-graphic.html">
+  <meta property="og:type" content="website">
+
+  <title>Panic Decks | Fingerboard Graphics | Vahan Vartanian</title>
+  <link rel="icon" type="image/x-icon" href="/src/mylogo-palepurple.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+  <div id="wrapper">
+    <div id="content">
+
+      <section id="video-section" class="relative h-screen z-10">
+        <div class="absolute inset-0 overflow-hidden">
+          <img class="w-full h-full object-cover filter brightness-50 translate-y-10% parallax-image" 
+               data-speed="0.5"
+               src="src/panic-banner.png">
+        </div>
+
+        <div class="absolute inset-0 bg-black/40 z-10">
+          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20">
+        </div>
+
+        <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4">
+          <!-- Logo on the left -->
+          <a href="index.html" class="flex items-center">
+            <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto">
+          </a>
+
+          <!-- Desktop Navigation on the right -->
+          <nav class="hidden md:block">
+            <ul class="flex items-center gap-12 pr-40">
+              <li>
+                <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
+              </li>
+              <li>
+                <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Mobile Menu Toggle (visible on mobile only) -->
+          <div class="md:hidden">
+            <label for="menu-toggle" class="cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </label>
+          </div>
+
+          <!-- Mobile Navigation Menu -->
+          <input type="checkbox" id="menu-toggle" class="hidden">
+          <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+            <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
+            <ul class="flex flex-col items-center space-y-6 text-lg">
+              <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+              <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+              <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text" data-speed="0.3">graphics for panic decks.</h2>
+        </div>
+
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5 ">
+          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
+        </div>
+      </section>
+
+      <section id="project-detail-3" class="relative bg-[#5D576B] pt-24 pb-32 z-5">
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+          <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+        </div>
+        <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
+          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+       
+
+          <div class="flex flex-row justify-center items-center gap-8">
+            <div class="flex flex-col items-center">
+              <img src="src/procreate.png" alt="Procreate" class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Procreate</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="src/photoshop.png" alt="Photoshop" class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Photoshop</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <img src="src/illustrator.png" alt="Illustrator"
+                class="w-20 sm:w-24 md:w-32 h-auto object-cover shadow-lg">
+              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-2 rock-font">Illustrator</p>
+            </div>
+          </div>
+
+          <div class="max-w-3xl mx-auto mt-16">
+            <p class="rock-font text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6 md:pb-10">
+              The goal of this project was to create a set of 2 unique graphics for 
+              <a href="https://instagram.com/panic.decks" class="underline">Panic Decks,</a> a fingerboard company. I
+              made each design by incorporating sharp, hand-drawn lines and transforming them into eye-catching visuals.
+              Using my own original illustrations as a foundation, I enhanced them with digital graphic effects in
+              Photoshop, experimenting with high-contrast textures and blending techniques. The result is a powerful
+              visual identity for the brand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="relative bg-[#202020] w-full py-16">
+
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="src/overlay.png" alt="Overlay"
+          class="absolute inset-0 w-full h-full object-cover opacity-[32%] rotate-180">
+        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8">process.</h2>
+          <div class="flex flex-col md:flex-row items-start justify-between gap-8 mt-12">
+            <div class="w-full md:w-1/2 text-center md:text-left">
+              <p class="text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                I began by sketching several rough concepts for the Panic Decks graphics, focusing on bold, abstract
+                designs that would capture the brand’s identity. I used sharp, hand-drawn lines as the core of each
+                design, creating a grainy look and feel. These sketches were then digitized using Procreate and further
+                enhanced with Photoshop and Illustrator, where I applied high-contrast effects and intricate textures.
+                The final graphics blend my hand-drawn elements with digital techniques, resulting in a unique aesthetic
+                for the brand.
+              </p>
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+              <p class="text-sm sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                The final set of designs was refined through experimentation with different colorways, textures, and
+                background techniques, creating a versatile range of graphics. After completing the designs, I shared
+                them with the client, who provided positive feedback, confirming that they aligned perfectly with the
+                brand’s visual identity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="end-product" class="relative bg-[#5D576B] w-full py-32">
+        <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
+          <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+        </div>
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <img src="src/overlay.png" alt="Overlay"
+          class="absolute inset-0 w-full h-full object-cover opacity-35 z-10">
+        <div class="relative z-30 max-w-6xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8">end product.</h2>
+          <div class="relative w-full flex justify-center items-center mx-auto mb-16">
+            <div class="relative w-3/4 h-auto sm:max-w-3/4 overflow-hidden transform transition-transform duration-500 hover:scale-105">
+              <video class="w-full h-auto object-cover border-4 border-[#FDE2FF]" autoplay loop muted playsinline>
+                <source src="src/panic-showcase.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <!-- Side-by-side images with hover effects -->
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-16">
+            <div class="w-64 transform transition-all duration-500 hover:scale-105 hover:rotate-1">
+              <a href="src/fingerbanger.webp" data-lightbox="gallery" data-title="look up graphic" class="block overflow-hidden">
+                <img src="src/fingerbanger.webp" alt="panic-1" class="w-full border-4 border-[#202020] transition-transform duration-500 hover:shadow-2xl">
+              </a>
+            </div>
+            <div class="w-64 transform transition-all duration-500 hover:scale-105 hover:-rotate-1">
+              <a href="src/fingerbangers02.webp" data-lightbox="gallery" data-title="red eye graphic" class="block overflow-hidden">
+                <img src="src/fingerbangers02.webp" alt="panic-2" class="w-full border-4 border-[#202020] transition-transform duration-500 hover:shadow-2xl">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Barbed Divider -->
+       
+        <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
+          <!-- Removed ?skipAnimation=true from the links below -->
+          <a href="project-detail-3.html" class="flex-1 text-center pr-4 sm:pr-8 md:pr-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
+          </a>
+          <a href="project-detail-2.html" class="flex-1 text-center pl-4 sm:pl-8 md:pl-16">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">next<br>project</h2>
+          </a>
+        </div>
+        <div class="flex justify-center py-8">
+          <a href="#top" class="nav-link text-[#FDE2FF] text-3xl hover:text-[#8884FF] transition-colors duration-300 z-[9999]">
+            back to top.
+            
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <div
+          class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8">
+          <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0">
+          <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+            <p class="text-black text-lg sm:text-2xl md:text-3xl">COLLABORATIONS & <br> INQUIRIES - ALWAYS WELCOME</p>
+            <div class="flex gap-4 sm:gap-6 mt-4">
+              <a href="https://instagram.com/vahvn"
+                class="text-black text-sm sm:text-base hover:underline">Instagram</a>
+              <a href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca"
+                class="text-black text-sm sm:text-base hover:underline">LinkedIn</a>
+              <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline">Email</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="Explore the portfolio of Vahan Vartanian, a graphic designer specializing in branding, web design, and digital art. Showcasing projects from BCIT New Media program, with a focus on innovative designs and custom branding."
+    />
+    <meta
+      name="keywords"
+      content="graphic design, portfolio, branding, web design, Vahan Vartanian, BCIT New Media, custom branding, logo design, digital art, creative portfolio"
+    />
+    <meta name="author" content="Vahan Vartanian" />
+    <meta property="og:title" content="Vahan Vartanian Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore my design portfolio featuring branding, web design, and creative projects. Learn more about my expertise in graphic design & web development."
+    />
+    <meta property="og:image" content="src/mylogo2.jpg" />
+    <meta property="og:url" content="http://www.vahanvartanian.com" />
+    <meta property="og:type" content="website" />
+    <title>Vahan Vartanian | Portfolio | Graphic & Web Design</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/src/mylogo-palepurple.png"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Inline style to disable pointer events on the video section container, but not its header -->
+    <style>
+      #video-section {
+        pointer-events: none;
+      }
+      #video-section header {
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+    <div id="wrapper">
+      <div id="content">
+        <!-- VIDEO SECTION (initial height extended) -->
+        <section
+          id="video-section"
+          class="relative h-[120vh] z-10"
+          style="height: calc(100vh + 200px)"
+        >
+          <div class="absolute inset-0 overflow-hidden">
+            <!-- Video element with pointer-events-none -->
+            <video
+              class="w-full h-full object-cover pointer-events-none"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source src="src/sky.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="absolute inset-0 bg-black/40 z-30">
+            <!-- Overlay image with pointer-events-none -->
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-20 pointer-events-none"
+            />
+          </div>
+          <header
+            class="relative top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4"
+          >
+            <!-- Logo on the left -->
+            <a href="index.html" class="flex items-center">
+              <img
+                src="src/my-logo-silver.gif"
+                alt="Logo"
+                class="w-40 sm:w-32 md:w-48 h-auto"
+              />
+            </a>
+            <!-- Desktop Navigation on the right -->
+            <nav class="hidden md:block">
+              <ul class="flex items-center gap-12 pr-40">
+                <li>
+                  <a
+                    href="index.html"
+                    class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]"
+                    >home.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="about.html"
+                    class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]"
+                    >about.</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="contact.html"
+                    class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]"
+                    >contact.</a
+                  >
+                </li>
+              </ul>
+            </nav>
+            <!-- Mobile Menu Toggle (visible on mobile only) -->
+            <div class="md:hidden">
+              <label for="menu-toggle" class="cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#FDE2FF"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="#FDE2FF"
+                  class="w-8 h-8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </label>
+            </div>
+            <!-- Mobile Navigation Menu -->
+            <input type="checkbox" id="menu-toggle" class="hidden" />
+            <nav
+              id="mobile-menu"
+              class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]"
+            >
+              <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="white"
+                  class="w-8 h-8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </label>
+              <ul class="flex flex-col items-center space-y-6 text-lg">
+                <li>
+                  <a
+                    href="index.html"
+                    class="hover:text-gray-400 text-4xl"
+                    >home.</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html" class="hover:text-gray-400 text-4xl"
+                    >about.</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html" class="hover:text-gray-400 text-4xl"
+                    >contact.</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <!-- Fixed Text Container: always centered in viewport -->
+          <div class="fixed inset-0 flex items-center justify-center px-4 text-center z-40 pointer-events-none">
+            <h1 class="text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wide md:tracking-widest flag-text transform-none">
+              <span>G</span><span>r</span><span>a</span><span>p</span><span>h</span><span>i</span><span>c</span>
+              <span>&</span><br />
+              <span>W</span><span>e</span><span>b</span>
+              <span>D</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span>
+            </h1>
+          </div>
+          <div class="absolute bottom-60 sm:bottom-70 w-full flex justify-center items-center z-[9999]" id="arrow">
+            <div class="text-[#FDE2FF] animate-bounce pointer-events-none">
+              <img src="src/up-arrow-svgrepo-com.svg" alt="arrow" class="w-16 lg:w-12 rotate-180">
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+            <img
+              src="src/divider-purple.png"
+              alt="Divider"
+              class="w-full h-auto pointer-events-none"
+            />
+          </div>
+        </section>
+
+        <!-- PROJECTS SECTION (set to a high stacking order via HTML, with pointer-events auto) -->
+        <section
+          id="projects"
+          class="relative bg-[#5D576B] py-6 sm:py-10 md:py-14 z-[9999] pointer-events-auto sm:mt-10 md:mt-14"
+        >
+          <div class="absolute inset-0 bg-black/40 z-6">
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-[31%] pointer-events-none"
+            />
+          </div>
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+              featured projects.
+            </h2>
+            <h2 class="text-lg sm:text-xl md:text-2xl mb-8 custom-h rock-font">
+              self initiated & commissioned work
+            </h2>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mx-auto w-full md:w-11/12 lg:w-9/12"
+            >
+              <div class="group relative w-full h-auto">
+                <a href="project-detail-2.html" class="block relative">
+                  <img
+                    src="src/frosted-model-8.jpg"
+                    alt="Frosted Skateboards project thumbnail"
+                    class="thumbnail w-full border-2 h-60 border-[#FDE2FF] shadow-xl object-cover"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center shadow-xl"
+                  >
+                    <p
+                      class="text-white text-sm sm:text-base md:text-lg font-semibold p-4 gritty-fall"
+                    >
+                      frosted skateboards.<br>graphic design<br>2024.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="group relative w-full h-auto">
+                <a href="project-detail-3.html" class="block relative">
+                  <img
+                    src="src/vahan-brand-logo.png"
+                    alt="Vahan Brand project thumbnail"
+                    class="w-full h-auto object-cover shadow-2xl"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center shadow-xl"
+                  >
+                    <p
+                      class="text-white text-sm sm:text-base md:text-lg font-semibold p-4 gritty-fall"
+                    >
+                      vahan. a brand.<br>graphic design & branding<br>2024.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="group relative w-full h-auto">
+                <a href="project-detail-4.html" class="block relative">
+                  <img
+                    src="src/panic-banner.png"
+                    alt="Panic Decks project thumbnail"
+                    class="thumbnail w-full h-[15rem] object-cover border-4 border-[#202020] shadow-xl"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center"
+                  >
+                    <p
+                      class="text-white text-sm sm:text-base md:text-lg font-semibold text-center gritty-fall"
+                    >
+                      panic decks.<br>graphic design<br>2024.
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <div class="group relative w-full h-auto">
+                <a href="project-detail-1.html" class="block relative">
+                  <img
+                    src="src/vahan-website.png"
+                    alt="Vahan Website project thumbnail"
+                    class="thumbnail w-full h-auto object-cover border-2 border-white"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center"
+                  >
+                    <p
+                      class="text-white text-sm sm:text-base md:text-lg font-semibold text-center gritty-fall"
+                    >
+                      vahan. a store.<br>web development.<br>2024.
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+          <div
+            class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8"
+          >
+            <img
+              src="src/mylogo2.png"
+              class="h-24 sm:h-36 w-auto mb-4 md:mb-0"
+            />
+            <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+              <p class="text-black text-lg sm:text-2xl md:text-3xl">
+                COLLABORATIONS & <br /> INQUIRIES - ALWAYS WELCOME
+              </p>
+              <div class="flex gap-4 sm:gap-6 mt-4">
+                <a
+                  href="https://instagram.com/vahvn"
+                  class="text-black text-sm sm:text-base hover:underline"
+                  >Instagram</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca"
+                  class="text-black text-sm sm:text-base hover:underline"
+                  >LinkedIn</a
+                >
+                <a
+                  href="mailto:vmog33@gmail.com"
+                  class="text-black text-sm sm:text-base hover:underline"
+                  >Email</a
+                >
+              </div>
+            </div>
+          </div>
+        </footer>
+        <script src="script.js"></script>
+      </div>
+    </div>
+  </body>
+</html>
