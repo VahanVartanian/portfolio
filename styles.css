@@ -237,7 +237,8 @@ header {
 #mobile-menu {
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 99999;
+  z-index: 9999999;
+  
 }
 
 #menu-toggle:checked ~ #mobile-menu {
