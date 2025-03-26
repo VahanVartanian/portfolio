@@ -34,76 +34,88 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-black text-[#FDE2FF] overflow-x-hidden">
-  <div id="wrapper">
-    <div id="content">
-
-      <section id="video-section" class="relative h-screen z-10">
-        <div class="absolute inset-0 overflow-hidden">
-          <img class="w-full h-full object-cover filter brightness-50 translate-y-10% parallax-image" 
-               data-speed="0.5"
-               src="src/panic-banner.png">
-        </div>
-
-        <div class="absolute inset-0 bg-black/40 z-10">
-          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20">
-        </div>
-
-        <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4">
-          <!-- Logo on the left -->
-          <a href="index.html" class="flex items-center">
-            <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto">
-          </a>
-
-          <!-- Desktop Navigation on the right -->
-          <nav class="hidden md:block">
-            <ul class="flex items-center gap-12 pr-40">
-              <li>
-                <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
-              </li>
-              <li>
-                <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
-              </li>
-              <li>
-                <a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a>
-              </li>
-            </ul>
-          </nav>
-
-          <!-- Mobile Menu Toggle (visible on mobile only) -->
-          <div class="md:hidden">
-            <label for="menu-toggle" class="cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
-            </label>
-          </div>
-
-          <!-- Mobile Navigation Menu -->
-          <input type="checkbox" id="menu-toggle" class="hidden">
-          <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
-            <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </label>
-            <ul class="flex flex-col items-center space-y-6 text-lg">
-              <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
-              <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
-              <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
-            </ul>
-          </nav>
-        </header>
-
-        <div class="absolute inset-0 flex items-center justify-center z-20">
-          <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text" data-speed="0.3">graphics for panic decks.</h2>
-        </div>
-
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5 ">
-          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
-        </div>
-      </section>
-
+        <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+          <div id="wrapper">
+            <div id="content">
+              <section id="video-section" class="relative h-screen z-10">
+                <div class="absolute inset-0 overflow-hidden">
+                  <img class="w-full h-full object-cover filter brightness-50 scale-125 translate-y-10%" 
+                       data-speed="0.5"
+                       src="src/panic-banner.png">
+                </div>
+                <div class="absolute inset-0 bg-black/40 z-10">
+                  <img
+                    src="src/overlay.png"
+                    alt="Overlay"
+                    class="w-full h-full object-cover opacity-20"
+                  />
+                </div>
+                <div class="absolute inset-0 flex items-center justify-center z-20">
+                  <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">"vahan". a store.</h2>
+                </div>
+                <!-- Header inside video section for desktop -->
+                <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
+                  <!-- Desktop Logo -->
+                  <a href="index.html" class="hidden md:flex items-center">
+                    <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
+                  </a>
+                  <!-- Desktop Navigation -->
+                  <nav class="hidden md:block">
+                    <ul class="flex items-center gap-12 pr-40">
+                      <li><a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
+                      <li><a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a></li>
+                      <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
+                    </ul>
+                  </nav>
+                </header>
+                <!-- Mobile Logo: centered on mobile only -->
+                <div class="absolute top-0 left-0 right-0 flex justify-center items-center z-[9998] md:hidden pt-4">
+                  <a href="index.html">
+                    <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
+                  </a>
+                </div>
+                <!-- Fixed Mobile Hamburger Icon (moved out of header) -->
+                <div class="md:hidden">
+                  <label for="menu-toggle" class="fixed top-10 right-4 z-[11000] cursor-pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="#FDE2FF"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="#FDE2FF"
+                      class="w-8 h-8"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                  </label>
+                </div>
+                <!-- Mobile Navigation Menu -->
+                <input type="checkbox" id="menu-toggle" class="hidden">
+                <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+                  <label for="menu-toggle" class="fixed top-4 right-4 z-[11000] cursor-pointer">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="white"
+                      class="w-8 h-8"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </label>
+                  <ul class="flex flex-col items-center space-y-6 text-lg">
+                    <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+                    <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+                    <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+                  </ul>
+                </nav>
+                <!-- Divider with higher z-index so it's visible above overlay -->
+                <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+                  <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
+                </div>
+              </section>
+       
       <section id="project-detail-3" class="relative bg-[#5D576B] pt-24 pb-32 z-5">
         <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
           <img src="src/divider.png" alt="Divider" class="w-full h-auto">
@@ -208,10 +220,10 @@
             </div>
           </div>
         </div>
-        <!-- Barbed Divider -->
+      
        
         <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
-          <!-- Removed ?skipAnimation=true from the links below -->
+         
           <a href="project-detail-3.html" class="flex-1 text-center pr-4 sm:pr-8 md:pr-16">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
           </a>

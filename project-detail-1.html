@@ -31,7 +31,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <link rel="stylesheet" href="styles.css" />
-
     <style>
       .nav-link {
         position: relative;
@@ -62,20 +61,15 @@
       .nav-link:hover .svg-container svg path {
         stroke-dashoffset: 0;
       }
-  
       .nav-link .svg-container svg {
-    transform: scale(0.8);
-    transform-origin: center;
-  }
-  
+        transform: scale(0.8);
+        transform-origin: center;
+      }
     </style>
   </head>
-
-  
   <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
     <div id="wrapper">
       <div id="content">
-     
         <section id="video-section" class="relative h-screen z-10">
           <div class="absolute inset-0 overflow-hidden">
             <img
@@ -86,14 +80,19 @@
             />
           </div>
           <div class="absolute inset-0 bg-black/40 z-10">
-            <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20" />
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-20"
+            />
           </div>
           <div class="absolute inset-0 flex items-center justify-center z-20">
             <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">"vahan". a store.</h2>
           </div>
-          <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center">
+          <!-- Header inside video section for desktop -->
+          <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
+            <!-- Desktop Logo -->
+            <a href="index.html" class="hidden md:flex items-center">
               <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
             </a>
             <!-- Desktop Navigation -->
@@ -104,241 +103,195 @@
                 <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
               </ul>
             </nav>
-            <!-- Mobile Menu Toggle -->
-            <div class="md:hidden">
-              <label for="menu-toggle" class="cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              </label>
-            </div>
-            <!-- Mobile Navigation Menu -->
-            <input type="checkbox" id="menu-toggle" class="hidden" />
-            <nav
-              id="mobile-menu"
-              class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]"
-            >
-              <label for="menu-toggle" class="absolute top-4 right-4 cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="white" class="w-8 h-8">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </label>
-              <ul class="flex flex-col items-center space-y-6 text-lg">
-                <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
-                <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
-                <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
-              </ul>
-            </nav>
           </header>
-          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+          <!-- Mobile Logo: centered on mobile only -->
+          <div class="absolute top-0 left-0 right-0 flex justify-center items-center z-[9998] md:hidden pt-4">
+            <a href="index.html">
+              <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
+            </a>
+          </div>
+          <!-- Fixed Mobile Hamburger Icon (moved out of header) -->
+          <div class="md:hidden">
+            <label for="menu-toggle" class="fixed top-10 right-4 z-[11000] cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#FDE2FF"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="#FDE2FF"
+                class="w-8 h-8"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </label>
+          </div>
+          <!-- Mobile Navigation Menu -->
+          <input type="checkbox" id="menu-toggle" class="hidden">
+          <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+            <label for="menu-toggle" class="fixed top-4 right-4 z-[11000] cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="white"
+                class="w-8 h-8"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
+            <ul class="flex flex-col items-center space-y-6 text-lg">
+              <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+              <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+              <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+            </ul>
+          </nav>
+          <!-- Divider with higher z-index so it's visible above overlay -->
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden">
             <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
           </div>
         </section>
+        <!-- END VIDEO SECTION -->
 
-
-      <section id="project-detail-1" class="relative bg-[#5D576B] py-12 sm:py-8 md:py-20 z-5">
-        
-        <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
-          <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-30 ">
-        </div>
-        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
-
-
-          <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:flex lg:flex-row justify-center items-center mt-8">
-
-            <div class="flex flex-col items-center">
-              <img src="src/aftereffects.png" alt="Adobe After Effects" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
-              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">Adobe After Effects</p>
+        <!-- PROJECT DETAIL SECTION -->
+        <section id="project-detail-1" class="relative bg-[#5D576B] py-12 sm:py-8 md:py-20 z-5">
+          <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
+            <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-30" />
+          </div>
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:flex lg:flex-row justify-center items-center mt-8">
+              <div class="flex flex-col items-center">
+                <img src="src/aftereffects.png" alt="Adobe After Effects" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">Adobe After Effects</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="src/html.png" alt="HTML5" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">HTML5</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="src/css.png" alt="CSS3" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">CSS3</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="src/javascript.png" alt="JavaScript" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">JavaScript</p>
+              </div>
             </div>
-
-
-            <div class="flex flex-col items-center">
-              <img src="src/html.png" alt="HTML5" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
-              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">HTML5</p>
-            </div>
-
-
-            <div class="flex flex-col items-center">
-              <img src="src/css.png" alt="CSS3" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
-              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">CSS3</p>
-            </div>
-
-
-            <div class="flex flex-col items-center">
-              <img src="src/javascript.png" alt="JavaScript" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
-              <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">JavaScript</p>
+            <div class="flex flex-col lg:flex-row items-center justify-center mt-16 gap-8 lg:gap-12">
+              <img src="src/vahan-website.png" alt="Vahan website" class="w-full max-w-[600px] h-auto shadow-xl border-4 border-[#FDE2FF]">
+              <div class="text-left max-w-full md:max-w-md">
+                <p class="rock-font text-xs text-center lg:text-left sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6">
+                  The goal of this project was to create an eCommerce website for my makeshift brand "Vahan." The project aimed to showcase my ability to integrate web development and design skills. I utilized JavaScript plugins, coded everything from scratch, designed graphics for all products on the site, and featured a website design that aligned with the brand identity of “Vahan.”
+                </p>
+                <p class="rock-font text-xs text-center lg:text-left sm:text-base md:text-lg leading-relaxed text-[#FDE2FF]">
+                  This project was an assignment for Web Scripting 1. The requirement for the project was to incorporate 5 JavaScript plugins onto a webpage.
+                </p>
+              </div>
             </div>
           </div>
+        </section>
 
-
-          <div class="flex flex-col lg:flex-row items-center justify-center mt-16 gap-8 lg:gap-12">
-
-            <img src="src/vahan-website.png" alt="Vahan website"
-              class="w-full max-w-[600px] h-auto shadow-xl border-4 border-[#FDE2FF]">
-
-
-            <div class="text-left max-w-full md:max-w-md">
-              <p class="rock-font text-sm text-center lg:text-left sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6">
-                The goal of this project was to create an eCommerce website for my makeshift brand "Vahan." The project
-                aimed to showcase my ability to integrate web development and design skills. I utilized JavaScript
-                plugins, coded everything from scratch, designed graphics for all products on the site, and featured a
-                website design that aligned with the brand identity of “Vahan.”
-              </p>
-              <p class="rock-font text-sm text-center lg:text-left sm:text-base md:text-lg leading-relaxed text-[#FDE2FF]">
-                This project was an assignment for Web Scripting 1. The requirement for the project was to incorporate 5
-                JavaScript plugins onto a webpage.
-              </p>
+        <section id="process" class="relative bg-[#202020] w-full py-32">
+          <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
+            <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180">
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">process.</h2>
+            <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
+              <div class="md:w-1/2 text-left">
+                <p class="text-xs sm:text-center text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font">
+                  I started by organizing the project structure, setting up the necessary code files using HTML, CSS, and JavaScript. This phase ensured a clean foundation to build the rest of the project efficiently. I set up version control through Git to manage updates and changes throughout the process.
+                </p>
+                <img src="src/arrow.png" alt="Arrow graphic" class="mt-4 transform scale-125 hidden md:block">
+                <img src="src/homepage.png" alt="Homepage" class="w-full h-auto rounded-lg shadow-lg mt-8">
+              </div>
+              <div class="md:w-1/2 text-left relative">
+                <img src="src/files.png" alt="File structure" class="hidden sm:block w-64 h-auto rounded-lg shadow-lg ml-24 md:ml-0 mb-8">
+                <p class="text-xs sm:text-base text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font pt-16">
+                  I then created a 3D logo, designed an animation in After Effects, and used Lottie.js to integrate it into the homepage. The main challenge was optimizing the animation to maintain quality while ensuring smooth performance and fast load times.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-
-
-
-
-      <section id="process" class="relative bg-[#202020] w-full py-32">
-
-        <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
-          <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto">
-        </div>
-        <div class="absolute inset-0 bg-black/40"></div>
-
-        <img src="src/overlay.png" alt="Overlay"
-          class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180">
-
-
-        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
-          <h2 class="text-3xl md:text-4xl font-bold mb-8">process.</h2>
-
-          <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
-
-            <div class="md:w-1/2 text-left">
-              <p class="text-sm sm:text-center text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font">
-                I started by organizing the project structure, setting up the necessary code files using HTML, CSS, and
-                JavaScript. This phase ensured a clean foundation to build the rest of the project efficiently. I set up
-                version control through Git to manage updates and changes throughout the process.
-              </p>
-              <img src="src/arrow.png" alt="Arrow graphic" class="mt-4 transform scale-125 hidden md:block">
-              <img src="src/homepage.png" alt="Homepage" class="w-full h-auto rounded-lg shadow-lg mt-8">
-            </div>
-
-
-            <div class="md:w-1/2 text-left relative">
-              <img src="src/files.png" alt="File structure"
-                class="hidden sm:block w-64 h-auto rounded-lg shadow-lg ml-24 md:ml-0 mb-8">
-
-              <p class="text-sm sm:text-base text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font pt-16">
-                I then created a 3D logo, designed an animation in After Effects, and used Lottie.js to integrate it
-                into the homepage. The main challenge was optimizing the animation to maintain quality while ensuring
-                smooth performance and fast load times.
-              </p>
+        <section id="process-2" class="relative bg-[#5D576B] w-full py-2 lg:py-32 pb-8">
+          <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
+            <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+            <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-40">
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
+              <div class="md:w-1/2 text-center">
+                <img src="src/vahan-website-2.png" alt="product-photo" class="w-full h-auto rounded-lg shadow-lg mx-auto">
+                <p class="text-xs sm:text-base md:text-lg text-center leading-relaxed text-[#FDE2FF] rock-font mt-4 pt-16 md:pt-32 text-left">
+                  I integrated plugins like Leaflet for map functionality and Animate on Scroll for subtle animations, enhancing interactivity while maintaining site performance. I also implemented jQuery validation for the contact form to ensure smooth user experience, especially on mobile devices.
+                </p>
+              </div>
+              <div class="md:w-1/2 text-left relative">
+                <p class="text-xs sm:text-base md:text-lg text-center lg:text-left leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                  After that, I worked on the overall layout of the site, focusing on both the shop and contact pages. The shop needed to showcase products in a clean, organized way, while ensuring smooth navigation for users. For the contact page, I designed a minimal but functional layout to ensure ease of access.
+                </p>
+                <img src="src/arrow-black.png" alt="Arrow graphic" class="transform scale-125 mb-4 hidden md:block">
+                <img src="src/vahan-website-3.png" alt="Contact Page Screenshot" class="w-full h-auto shadow-lg">
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="process-2" class="relative bg-[#5D576B] w-full py-2 lg:py-32 pb-8">
-        <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
-          <img src="src/divider.png" alt="Divider" class="w-full h-auto">
-        </div>
-        <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
-          <img src="src/divider.png" alt="Divider" class="w-full h-auto">
-        </div>
-        <div class="absolute inset-0 bg-black/40"></div>
-        <img src="src/overlay.png" alt="Overlay"
-          class="absolute inset-0 w-full h-full object-cover opacity-40">
-
-
-        <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
-          <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
-
-            <div class="md:w-1/2 text-center">
-              <img src="src/vahan-website-2.png" alt="product-photo" class="w-full h-auto rounded-lg shadow-lg mx-auto">
-              <p
-                class="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed text-[#FDE2FF] rock-font mt-4 pt-16 md:pt-32 text-left">
-                I integrated plugins like Leaflet for map functionality and Animate on Scroll for subtle animations,
-                enhancing interactivity while maintaining site performance. I also implemented jQuery validation for the
-                contact form to ensure smooth user experience, especially on mobile devices.
-              </p>
+        <section id="end-product" class="relative bg-[#202020] w-full py-8">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180 z-10">
+          <div class="relative z-30 max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">end product.</h2>
+            <div class="relative w-full flex justify-center items-center max-w-4xl mx-auto">
+              <video class="w-full h-auto max-w-[90%] sm:max-w-[80%] border-4 border-[#FDE2FF] shadow-lg pointer-events-none" autoplay muted>
+                <source src="src/vahan-website.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
-
-
-            <div class="md:w-1/2 text-left relative">
-              <p class="text-sm sm:text-base md:text-lg text-center lg:text-left leading-relaxed text-[#FDE2FF] rock-font mb-4">
-                After that, I worked on the overall layout of the site, focusing on both the shop and contact pages. The
-                shop needed to showcase products in a clean, organized way, while ensuring smooth navigation for users.
-                For the contact page, I designed a minimal but functional layout to ensure ease of access.
-              </p>
-              <img src="src/arrow-black.png" alt="Arrow graphic" class="transform scale-125 mb-4 hidden md:block">
-              <img src="src/vahan-website-3.png" alt="Contact Page Screenshot"
-                class="w-full h-auto shadow-lg">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="end-product" class="relative bg-[#202020] w-full py-8">
-
-        <div class="absolute inset-0 bg-black/40 z-10"></div>
-        <img src="src/overlay.png" alt="Overlay"
-          class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180 z-10">
-
-
-        <div class="relative z-30 max-w-6xl mx-auto text-center">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">end product.</h2>
-
-
-          <div class="relative w-full flex justify-center items-center max-w-4xl mx-auto">
-            <video class="w-full h-auto max-w-[90%] sm:max-w-[80%] border-4 border-[#FDE2FF] shadow-lg pointer-events-none" autoplay muted>
-              <source src="src/vahan-website.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            
-          </div>
-          <a href="https://store.vahanvartanian.com" class="nav-link" >
-            <h2 class="relative flex justify-center items-center pt-16 text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884ff]">visit website.</h2>
-</a>
-
-          <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
-            <a href="project-detail-2.html" class="nav-link flex-1 text-center pr-4 sm:pr-8 md:pr-16">
-              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
+            <a href="https://store.vahanvartanian.com" class="nav-link">
+              <h2 class="relative flex justify-center items-center pt-16 text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884ff]">visit website.</h2>
             </a>
-            <a href="project-detail-3.html" class="nav-link flex-1 text-center pl-4 sm:pl-8 md:pl-16">
-              <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">next<br>project</h2>
-            </a>
-          </div>
-
-          <!-- Add back to top button before closing the end-product section -->
-          <div class="flex justify-center py-8">
-            <a href="#top" class="nav-link text-[#FDE2FF] text-3xl hover:text-[#8884FF] transition-colors duration-300 z-[9999]">
-              back to top.
-            
-            </a>
-          </div>
-
-      </section>
-
-      <footer>
-        <div
-          class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8">
-          <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0" alt="footer-logo">
-          <div class="flex flex-col items-center text-center md:w-full md:mr-32">
-            <p class="text-black text-lg sm:text-2xl md:text-3xl">COLLABORATIONS & <br> INQUIRIES - ALWAYS WELCOME</p>
-            <div class="flex gap-4 sm:gap-6 mt-4">
-              <a href="https://instagram.com/vahvn"
-                class="text-black text-sm sm:text-base hover:underline">Instagram</a>
-              <a href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca"
-                class="text-black text-sm sm:text-base hover:underline">LinkedIn</a>
-              <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline">Email</a>
+            <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
+              <a href="project-detail-2.html" class="nav-link flex-1 text-center pr-4 sm:pr-8 md:pr-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
+              </a>
+              <a href="project-detail-3.html" class="nav-link flex-1 text-center pl-4 sm:pl-8 md:pl-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">next<br>project</h2>
+              </a>
+            </div>
+            <div class="flex justify-center py-8">
+              <a href="#top" class="nav-link text-[#FDE2FF] text-3xl hover:text-[#8884FF] transition-colors duration-300 z-[9999]">
+                back to top.
+              </a>
             </div>
           </div>
-        </div>
-      </footer>
+        </section>
 
-
-      <script src="script.js"></script>
-     
-</body>
-
+        <footer>
+          <div class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8">
+            <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0" alt="footer-logo" />
+            <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+              <p class="text-black text-lg sm:text-2xl md:text-3xl">
+                COLLABORATIONS & <br /> INQUIRIES - ALWAYS WELCOME
+              </p>
+              <div class="flex gap-4 sm:gap-6 mt-4">
+                <a href="https://instagram.com/vahvn" class="text-black text-sm sm:text-base hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca" class="text-black text-sm sm:text-base hover:underline">LinkedIn</a>
+                <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline">Email</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
