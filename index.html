@@ -3,20 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Explore the portfolio of Vahan Vartanian, a graphic designer specializing in branding, web design, and digital art. Showcasing projects from BCIT New Media program, with a focus on innovative designs and custom branding."
-    />
-    <meta
-      name="keywords"
-      content="graphic design, portfolio, branding, web design, Vahan Vartanian, BCIT New Media, custom branding, logo design, digital art, creative portfolio"
-    />
+    <meta name="description" content="Explore the portfolio of Vahan Vartanian, a graphic designer specializing in branding, web design, and digital art. Showcasing projects from BCIT New Media program, with a focus on innovative designs and custom branding." />
+    <meta name="keywords" content="graphic design, portfolio, branding, web design, Vahan Vartanian, BCIT New Media, custom branding, logo design, digital art, creative portfolio" />
     <meta name="author" content="Vahan Vartanian" />
     <meta property="og:title" content="Vahan Vartanian Portfolio" />
-    <meta
-      property="og:description"
-      content="Explore my design portfolio featuring branding, web design, and creative projects. Learn more about my expertise in graphic design & web development."
-    />
+    <meta property="og:description" content="Explore my design portfolio featuring branding, web design, and creative projects. Learn more about my expertise in graphic design & web development." />
     <meta property="og:image" content="src/mylogo2.jpg" />
     <meta property="og:url" content="http://www.vahanvartanian.com" />
     <meta property="og:type" content="website" />
@@ -24,7 +15,10 @@
     <title>Vahan Vartanian | Portfolio | Graphic & Web Design</title>
     <link rel="icon" type="image/x-icon" href="/src/mylogo-palepurple.png" />
 
-    <!-- Keep Tailwind in head so styles are ready immediately -->
+    <!-- AOS CSS (integrity removed) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Inline style: disable pointer events on video section, but not header -->
@@ -32,56 +26,59 @@
       #video-section {
         pointer-events: none;
       }
-      /* header remains separate so its pointer events are not disabled */
+      /* Custom CSS for the project container border via pseudo-element */
+      .project-border {
+        position: relative;
+      }
+      .project-border::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 4px solid #FDE2FF;
+        border-right: 4px solid #FDE2FF;
+        border-bottom: 4px solid #FDE2FF;
+        /* no left border */
+        border-top-right-radius: 0.75rem;
+        border-bottom-right-radius: 0.75rem;
+        pointer-events: none;
+        box-sizing: border-box;
+      }
     </style>
 
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
-    <!-- HEADER (inside video section, absolute) -->
+    <!-- HEADER -->
     <header class="absolute top-0 left-0 right-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
-      <!-- Mobile Logo: centered on mobile only -->
+      <!-- Mobile Logo -->
       <div class="w-full flex justify-center md:hidden">
         <a href="index.html">
           <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
         </a>
       </div>
-
-      <!-- Desktop Logo and Navigation (desktop only) -->
+      <!-- Desktop Logo & Navigation -->
       <div class="hidden md:flex items-center justify-between w-full">
-        <!-- Desktop Logo: left aligned -->
         <a href="index.html" class="flex items-center">
           <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
         </a>
-        <!-- Desktop Navigation -->
         <nav>
           <ul class="flex items-center gap-12 pr-40">
-            <li>
-              <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
-            </li>
-            <li>
-              <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
-            </li>
-            <li>
-              <a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a>
-            </li>
+            <li><a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
+            <li><a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a></li>
+            <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Fixed Mobile Hamburger Icon (moved outside header) -->
+    <!-- Fixed Mobile Hamburger Icon -->
     <div class="md:hidden">
       <label for="menu-toggle" class="fixed top-10 right-4 z-[11000] cursor-pointer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#FDE2FF"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="#FDE2FF"
-          class="w-8 h-8"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#FDE2FF" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
       </label>
@@ -89,32 +86,16 @@
 
     <!-- Mobile Navigation Menu -->
     <input type="checkbox" id="menu-toggle" class="hidden" />
-    <nav
-      id="mobile-menu"
-      class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]"
-    >
+    <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
       <label for="menu-toggle" class="fixed top-4 right-4 z-[11000] cursor-pointer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="#FDE2FF"
-          class="w-8 h-8"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#FDE2FF" class="w-8 h-8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </label>
       <ul class="flex flex-col items-center space-y-6 text-lg">
-        <li>
-          <a href="index.html" class="hover:text-gray-400 text-4xl">home.</a>
-        </li>
-        <li>
-          <a href="about.html" class="hover:text-gray-400 text-4xl">about.</a>
-        </li>
-        <li>
-          <a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a>
-        </li>
+        <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+        <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+        <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
       </ul>
     </nav>
 
@@ -126,12 +107,9 @@
           Your browser does not support the video tag.
         </video>
       </div>
-
       <div class="absolute inset-0 bg-black/40 z-30">
         <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20 pointer-events-none" />
       </div>
-
-      <!-- Fixed Text Container: always centered in viewport -->
       <div class="fixed inset-0 flex items-center justify-center px-4 text-center z-40 pointer-events-none">
         <h1 class="text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wide md:tracking-widest flag-text">
           <span>G</span><span>r</span><span>a</span><span>p</span><span>h</span><span>i</span><span>c</span>
@@ -140,13 +118,11 @@
           <span>D</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span>
         </h1>
       </div>
-
       <div class="absolute bottom-60 sm:bottom-80 w-full flex justify-center items-center z-[9000]" id="arrow">
         <div class="text-[#FDE2FF] animate-bounce pointer-events-none">
           <img src="src/up-arrow-svgrepo-com.svg" alt="arrow" class="w-16 lg:w-12 rotate-180" />
         </div>
       </div>
-
       <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
         <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto pointer-events-none" />
       </div>
@@ -158,54 +134,224 @@
         <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-[31%] pointer-events-none" />
       </div>
       <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">featured projects.</h2>
-        <h2 class="text-lg sm:text-xl md:text-2xl mb-8 custom-h rock-font">self initiated & commissioned work</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mx-auto w-full md:w-11/12 lg:w-9/12">
+        <h2 class="text-4xl sm:text-3xl md:text-6xl font-bold mb-4 text-white">
+          featured projects.
+        </h2>
+        <h2 class="text-lg sm:text-xl md:text-2xl mb-8 custom-h rock-font text-white">
+          self initiated & commissioned work
+        </h2>
+        
+        <!-- Mobile Projects Grid: visible only on mobile -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mx-auto w-full md:w-11/12 lg:w-9/12 md:hidden">
           <div class="group relative w-full h-auto">
             <a href="frosted-graphics.html" class="block relative">
               <img src="src/frosted-model-8.jpg" alt="Frosted Skateboards project thumbnail" class="thumbnail w-full border-2 h-60 border-[#FDE2FF] shadow-xl object-cover" />
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center shadow-xl">
                 <p class="text-white text-sm sm:text-base md:text-lg font-semibold p-4 gritty-fall">
-                  frosted skateboards.<br>graphic design<br>2024.
+                  frosted skateboards.<br />graphic design<br />2024.
                 </p>
               </div>
             </a>
           </div>
-
           <div class="group relative w-full h-auto">
             <a href="vahan-a-brand.html" class="block relative">
               <img src="src/vahan-brand-logo.png" alt="Vahan Brand project thumbnail" class="w-full h-auto object-cover shadow-2xl" />
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center shadow-xl">
                 <p class="text-white text-sm sm:text-base md:text-lg font-semibold p-4 gritty-fall">
-                  vahan. a brand.<br>graphic design & branding<br>2024.
+                  vahan. a brand.<br />graphic design & branding<br />2024.
                 </p>
               </div>
             </a>
           </div>
-
           <div class="group relative w-full h-auto">
             <a href="panic-decks.html" class="block relative">
               <img src="src/panic-banner.png" alt="Panic Decks project thumbnail" class="thumbnail w-full h-[15rem] object-cover border-4 border-[#202020] shadow-xl" />
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center">
                 <p class="text-white text-sm sm:text-base md:text-lg font-semibold text-center gritty-fall">
-                  panic decks.<br>graphic design<br>2024.
+                  panic decks.<br />graphic design<br />2024.
                 </p>
               </div>
             </a>
           </div>
-
           <div class="group relative w-full h-auto">
             <a href="vahan-a-store.html" class="block relative">
               <img src="src/vahan-website.png" alt="Vahan Website project thumbnail" class="thumbnail w-full h-auto object-cover border-2 border-white" />
               <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex justify-center items-center">
                 <p class="text-white text-sm sm:text-base md:text-lg font-semibold text-center gritty-fall">
-                  vahan. a store.<br>web development.<br>2024.
+                  vahan. a store.<br />web development<br />2024.
                 </p>
               </div>
             </a>
           </div>
         </div>
       </div>
+      
+      <div class="hidden md:flex flex-col gap-8 mx-auto w-[95%] relative z-40">
+        <!-- Project 1 -->
+        <div id="project-1" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+          <!-- Left text block -->
+          <div class="w-1/2 pl-8 flex flex-col justify-center">
+            <div class="pb-48">
+              <h2 class="text-4xl font-bold">a graphic for frosted skateboards.</h2>
+              <p class="text-md pt-8">
+                A graphic design project, where I designed a custom graphic <br>for the Montreal skateboarding brand, Frosted Skateboards.
+              </p>
+            </div>
+          </div>
+          <!-- Right image block -->
+          <div class="w-3/4 flex items-center justify-end">
+            <img src="src/frosted-model-8.jpg" alt="Frosted Skateboards" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          </div>
+          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <a href="frosted-graphics.html" class="absolute bottom-12 left-4 w-auto">
+            <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
+                View Project
+              </h3>
+            </div>
+          </a>
+          <!-- 3 square icons side by side with labels -->
+          <div class="absolute bottom-10 left-72 flex space-x-4">
+            <div class="flex flex-col items-center">
+              <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/procreate.png" alt="Procreate Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Procreate</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/illustrator.png" alt="Illustrator Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Illustrator</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div id="project-2" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+          <!-- Left text block -->
+          <div class="w-1/2 pl-8 flex flex-col justify-center">
+            <div class="pb-48">
+              <h2 class="text-4xl font-bold">graphics for panic decks.</h2>
+              <p class="text-md pt-8">
+                A graphic design project, where I designed 2 custom, hand drawn graphics for the fingerboard company Panic Decks. They were then digitalized and produced.
+              </p>
+            </div>
+          </div>
+          <!-- Right image block -->
+          <div class="w-3/4 flex items-center justify-end">
+            <img src="src/panic-banner.png" alt="Panic Banner" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          </div>
+          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <a href="panic-decks.html" class="absolute bottom-12 left-4 w-auto">
+            <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
+                View Project
+              </h3>
+            </div>
+          </a>
+          <!-- 3 square icons side by side with labels -->
+          <div class="absolute bottom-10 left-72 flex space-x-4">
+            <div class="flex flex-col items-center">
+              <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/procreate.png" alt="Procreate Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Procreate</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/illustrator.png" alt="Illustrator Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Illustrator</span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Project 3 -->
+        <div id="project-3" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+          <!-- Left text block -->
+          <div class="w-1/2 pl-8 flex flex-col justify-center">
+            <div class="pb-48">
+              <h2 class="text-4xl font-bold">"vahan" a store.</h2>
+              <p class="text-md pt-8">
+                A web development project, where I designed and developed an online eCommerce store for a fictional brand called "Vahan".
+              </p>
+            </div>
+          </div>
+          <!-- Right image block -->
+          <div class="w-3/4 flex items-center justify-end">
+            <img src="src/vahan-website.png" alt="vahan store" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          </div>
+          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <a href="vahan-a-store.html" class="absolute bottom-12 left-4 w-auto">
+            <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
+                View Project
+              </h3>
+            </div>
+          </a>
+          <!-- 3 square icons side by side with labels -->
+          <div class="absolute bottom-10 left-72 flex space-x-4">
+            <div class="flex flex-col items-center">
+              <img src="src/html.png" alt="HTML Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">HTML</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/javascript.png" alt="JavaScript Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">JavaScript</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/css.png" alt="CSS Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">CSS</span>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Project 4 -->
+        <div id="project-4" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+          <!-- Left text block -->
+          <div class="w-1/2 pl-8 flex flex-col justify-center">
+            <div class="pb-48">
+              <h2 class="text-4xl font-bold">"vahan" a brand.</h2>
+              <p class="text-md pt-8">
+                A graphic design project, where I designed the brand identity for a fictional brand called "Vahan". The project included logo and clothing design, as well as a brand guideline.
+              </p>
+            </div>
+          </div>
+          <!-- Right image block -->
+          <div class="w-3/4 flex items-center justify-end">
+            <img src="src/vahan-brand-logo.png" alt="vahan brand" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          </div>
+          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <a href="vahan-a-brand.html" class="absolute bottom-12 left-4 w-auto">
+            <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
+                View Project
+              </h3>
+            </div>
+          </a>
+          <!-- 3 square icons side by side with labels -->
+          <div class="absolute bottom-10 left-72 flex space-x-4">
+            <div class="flex flex-col items-center">
+              <img src="src/procreate.png" alt="Procreate Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Procreate</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <img src="src/illustrator.png" alt="Illustrator Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">Illustrator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </section>
 
     <!-- FOOTER -->
@@ -224,21 +370,24 @@
         </div>
       </div>
     </footer>
-  </div>
-</div>
 
-<!-- Load non-critical scripts at the end with defer -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery" defer></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-  integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-  defer
-></script>
-<!-- Your main JS -->
-<script src="script.js" defer></script>
+    <!-- Load non-critical scripts at the end with defer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+          duration: 300,
+          easing: "ease-in-out",
+          once: true,
+          mirror: true,
+          offset: -400,
+        });
+      });
+    </script>
+    <!-- Your main JS -->
+    <script src="script.js" defer></script>
   </body>
 </html>
