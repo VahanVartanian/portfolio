@@ -21,12 +21,8 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Inline style: disable pointer events on video section, but not header -->
+    <!-- Inline style for custom project border and responsive rules -->
     <style>
-      #video-section {
-        pointer-events: none;
-      }
-      /* Custom CSS for the project container border via pseudo-element */
       .project-border {
         position: relative;
       }
@@ -46,6 +42,23 @@
         pointer-events: none;
         box-sizing: border-box;
       }
+
+      /* Hide icon containers when the width is smaller than 1350px */
+      @media (max-width: 1349px) {
+        .icons-container {
+          display: none !important;
+        }
+      }
+
+      /* For iPad: make project photos span the height of the parent div */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .project-img-container {
+          height: 100%;
+        }
+        .project-img-container a {
+          height: 100%;
+        }
+      }
     </style>
 
     <link rel="stylesheet" href="styles.css" />
@@ -56,18 +69,18 @@
     <header class="absolute top-0 left-0 right-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
       <!-- Mobile Logo -->
       <div class="w-full flex justify-center md:hidden">
-        <a href="index.html">
+        <a href="/">
           <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
         </a>
       </div>
       <!-- Desktop Logo & Navigation -->
       <div class="hidden md:flex items-center justify-between w-full">
-        <a href="index.html" class="flex items-center">
+        <a href="/" class="flex items-center">
           <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
         </a>
         <nav>
           <ul class="flex items-center gap-12 pr-40">
-            <li><a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
+            <li><a href="/" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
             <li><a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a></li>
             <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
           </ul>
@@ -93,7 +106,7 @@
         </svg>
       </label>
       <ul class="flex flex-col items-center space-y-6 text-lg">
-        <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+        <li><a href="/" class="hover:text-gray-400 text-4xl">home.</a></li>
         <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
         <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
       </ul>
@@ -102,13 +115,13 @@
     <!-- VIDEO SECTION -->
     <section id="video-section" class="relative h-[120vh] z-10" style="height: calc(100vh + 200px)">
       <div class="absolute inset-0 overflow-hidden">
-        <video class="w-full h-full object-cover pointer-events-none" autoplay muted loop playsinline poster="src/poster.png">
+        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="src/poster.png">
           <source src="src/sky.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
       <div class="absolute inset-0 bg-black/40 z-30">
-        <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20 pointer-events-none" />
+        <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20" />
       </div>
       <div class="fixed inset-0 flex items-center justify-center px-4 text-center z-40 pointer-events-none">
         <h1 class="text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-wide md:tracking-widest flag-text">
@@ -119,7 +132,7 @@
         </h1>
       </div>
       <div class="absolute bottom-60 sm:bottom-80 w-full flex justify-center items-center z-[9000]" id="arrow">
-        <div class="text-[#FDE2FF] animate-bounce pointer-events-none">
+        <div class="text-[#FDE2FF] animate-bounce pointer-events-auto" id="arrow1">
           <img src="src/up-arrow-svgrepo-com.svg" alt="arrow" class="w-16 lg:w-12 rotate-180" />
         </div>
       </div>
@@ -186,33 +199,34 @@
         </div>
       </div>
       
+      <!-- Desktop Projects Grid -->
       <div class="hidden md:flex flex-col gap-8 mx-auto w-[95%] relative z-40">
         <!-- Project 1 -->
-        <div id="project-1" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+        <div id="project-1" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] md:h-[450px] lg:h-[400px] flex relative group">
           <!-- Left text block -->
           <div class="w-1/2 pl-8 flex flex-col justify-center">
             <div class="pb-48">
-              <h2 class="text-4xl font-bold">a graphic for frosted skateboards.</h2>
-              <p class="text-md pt-8">
+              <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold">a graphic for frosted skateboards.</h2>
+              <p class="text-md pt-8 rock-font">
                 A graphic design project, where I designed a custom graphic <br>for the Montreal skateboarding brand, Frosted Skateboards.
               </p>
             </div>
           </div>
           <!-- Right image block -->
-          <div class="w-3/4 flex items-center justify-end">
-            <img src="src/frosted-model-8.jpg" alt="Frosted Skateboards" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          <div class="w-1/2 md:w-1/2 lg:w-3/4 flex items-center justify-end project-img-container">
+            <a href="frosted-graphics.html">
+              <img src="src/frosted-model-8.jpg" alt="Frosted Skateboards" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+            </a>
           </div>
-          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <!-- CTA Link -->
           <a href="frosted-graphics.html" class="absolute bottom-12 left-4 w-auto">
             <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
-              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
-              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
-                View Project
-              </h3>
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16 rotate-180" />
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">View Project</h3>
             </div>
           </a>
-          <!-- 3 square icons side by side with labels -->
-          <div class="absolute bottom-10 left-72 flex space-x-4">
+          <!-- Icons: Visible on mobile and desktop; hidden on tablet -->
+          <div class="icons-container absolute bottom-10 left-72 flex space-x-4 md:hidden lg:flex">
             <div class="flex flex-col items-center">
               <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
               <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
@@ -229,31 +243,31 @@
         </div>
         
         <!-- Project 2 -->
-        <div id="project-2" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+        <div id="project-2" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] md:h-[450px] lg:h-[400px] flex relative group">
           <!-- Left text block -->
           <div class="w-1/2 pl-8 flex flex-col justify-center">
             <div class="pb-48">
-              <h2 class="text-4xl font-bold">graphics for panic decks.</h2>
-              <p class="text-md pt-8">
+              <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold">graphics for panic decks.</h2>
+              <p class="text-md pt-8 rock-font">
                 A graphic design project, where I designed 2 custom, hand drawn graphics for the fingerboard company Panic Decks. They were then digitalized and produced.
               </p>
             </div>
           </div>
           <!-- Right image block -->
-          <div class="w-3/4 flex items-center justify-end">
-            <img src="src/panic-banner.png" alt="Panic Banner" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          <div class="w-1/2 md:w-1/2 lg:w-3/4 flex items-center justify-end project-img-container">
+            <a href="panic-decks.html">
+              <img src="src/panic-banner.png" alt="Panic Banner" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+            </a>
           </div>
-          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <!-- CTA Link -->
           <a href="panic-decks.html" class="absolute bottom-12 left-4 w-auto">
             <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
               <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
-              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
-                View Project
-              </h3>
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">View Project</h3>
             </div>
           </a>
-          <!-- 3 square icons side by side with labels -->
-          <div class="absolute bottom-10 left-72 flex space-x-4">
+          <!-- Icons: Hidden on tablet -->
+          <div class="icons-container absolute bottom-10 left-72 flex space-x-4 md:hidden lg:flex">
             <div class="flex flex-col items-center">
               <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
               <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
@@ -268,33 +282,33 @@
             </div>
           </div>
         </div>
-      
-        <!-- Project 3 -->
-        <div id="project-3" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+        
+        <!-- Project 3 (Vahan Store) -->
+        <div id="project-3" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] md:h-[450px] lg:h-[400px] flex relative group">
           <!-- Left text block -->
           <div class="w-1/2 pl-8 flex flex-col justify-center">
             <div class="pb-48">
-              <h2 class="text-4xl font-bold">"vahan" a store.</h2>
-              <p class="text-md pt-8">
+              <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold">"vahan" a store.</h2>
+              <p class="text-md pt-8 rock-font">
                 A web development project, where I designed and developed an online eCommerce store for a fictional brand called "Vahan".
               </p>
             </div>
           </div>
           <!-- Right image block -->
-          <div class="w-3/4 flex items-center justify-end">
-            <img src="src/vahan-website.png" alt="vahan store" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          <div class="w-1/2 md:w-1/2 lg:w-3/4 flex items-center justify-end project-img-container">
+            <a href="vahan-a-store.html">
+              <img src="src/vahan-website-banner.png" alt="vahan store" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter brightness-125 group-hover:brightness-100 transition-all duration-300 border-l-4" />
+            </a>
           </div>
-          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
+          <!-- CTA Link -->
           <a href="vahan-a-store.html" class="absolute bottom-12 left-4 w-auto">
             <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
-              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
-              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
-                View Project
-              </h3>
+              <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16 rotate-180">
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">View Project</h3>
             </div>
           </a>
-          <!-- 3 square icons side by side with labels -->
-          <div class="absolute bottom-10 left-72 flex space-x-4">
+          <!-- Icons: Hidden on tablet -->
+          <div class="icons-container absolute bottom-10 left-72 flex space-x-4 md:hidden lg:flex">
             <div class="flex flex-col items-center">
               <img src="src/html.png" alt="HTML Icon" class="w-16 h-16 object-contain">
               <span class="text-xs rock-font text-[#FDE2FF]">HTML</span>
@@ -309,48 +323,49 @@
             </div>
           </div>
         </div>
-      
-        <!-- Project 4 -->
-        <div id="project-4" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] flex relative group">
+        
+        <!-- Project 4 (Vahan Brand) -->
+        <div id="project-4" data-aos="fade-up" data-aos-duration="800" class="w-full border-4 border-[#FDE2FF] rounded-xl h-[400px] md:h-[450px] lg:h-[400px] flex relative group">
           <!-- Left text block -->
           <div class="w-1/2 pl-8 flex flex-col justify-center">
             <div class="pb-48">
-              <h2 class="text-4xl font-bold">"vahan" a brand.</h2>
-              <p class="text-md pt-8">
-                A graphic design project, where I designed the brand identity for a fictional brand called "Vahan". The project included logo and clothing design, as well as a brand guideline.
+              <h2 class="text-3xl md:text-3xl lg:text-4xl font-bold">the T5MRKT project.</h2>
+              <p class="text-md pt-8 rock-font">
+                A web development project where I introduced a complete Shopify refresh for T5MRKT, improving the user experience from homepage to checkout.
               </p>
             </div>
           </div>
           <!-- Right image block -->
-          <div class="w-3/4 flex items-center justify-end">
-            <img src="src/vahan-brand-logo.png" alt="vahan brand" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter border-l-4 grayscale group-hover:filter-none transition-all duration-300" />
+          <div class="w-1/2 md:w-1/2 lg:w-3/4 flex items-center justify-end project-img-container">
+            <a href="t5mrkt-project.html">
+              <img src="src/t5mrkt-banner.png" alt="t5mrktbanner" class="w-full h-full object-cover border-[#FDE2FF] rounded-tr-lg rounded-br-lg filter brightness-80 grayscale group-hover:filter-none transition-all duration-300 border-l-4" />
+            </a>
           </div>
-          <!-- CTA Link with adjusted hover animation (scales without shifting) -->
-          <a href="vahan-a-brand.html" class="absolute bottom-12 left-4 w-auto">
+          <!-- CTA Link -->
+          <a href="t5mrkt-project.html" class="absolute bottom-12 left-4 w-auto">
             <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
               <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16">
-              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">
-                View Project
-              </h3>
+              <h3 class="absolute inset-0 flex items-center justify-center text-xl font-bold text-[#FDE2FF]">View Project</h3>
             </div>
           </a>
-          <!-- 3 square icons side by side with labels -->
-          <div class="absolute bottom-10 left-72 flex space-x-4">
+          <!-- Icons: Hidden on tablet -->
+          <div class="icons-container absolute bottom-10 left-72 flex space-x-4 md:hidden lg:flex">
             <div class="flex flex-col items-center">
-              <img src="src/procreate.png" alt="Procreate Icon" class="w-16 h-16 object-contain">
-              <span class="text-xs rock-font text-[#FDE2FF]">Procreate</span>
+              <img src="src/html.png" alt="html Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">HTML</span>
             </div>
             <div class="flex flex-col items-center">
-              <img src="src/photoshop.png" alt="Photoshop Icon" class="w-16 h-16 object-contain">
-              <span class="text-xs rock-font text-[#FDE2FF]">Photoshop</span>
+              <img src="src/css.png" alt="css Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">CSS</span>
             </div>
             <div class="flex flex-col items-center">
-              <img src="src/illustrator.png" alt="Illustrator Icon" class="w-16 h-16 object-contain">
-              <span class="text-xs rock-font text-[#FDE2FF]">Illustrator</span>
+              <img src="src/javascript.png" alt="js Icon" class="w-16 h-16 object-contain">
+              <span class="text-xs rock-font text-[#FDE2FF]">JavaScript</span>
             </div>
           </div>
         </div>
       </div>
+
       
     </section>
 
@@ -383,7 +398,7 @@
           easing: "ease-in-out",
           once: true,
           mirror: true,
-          offset: -400,
+          offset: -500,
         });
       });
     </script>

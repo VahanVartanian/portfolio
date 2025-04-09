@@ -56,13 +56,13 @@
                 <!-- Header inside video section for desktop -->
                 <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
                   <!-- Desktop Logo -->
-                  <a href="index.html" class="hidden md:flex items-center">
+                  <a href="/" class="hidden md:flex items-center"> <!-- changed from href="index.html" -->
                     <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
                   </a>
                   <!-- Desktop Navigation -->
                   <nav class="hidden md:block">
                     <ul class="flex items-center gap-12 pr-40">
-                      <li><a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
+                      <li><a href="/" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li> <!-- changed from href="index.html" -->
                       <li><a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a></li>
                       <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
                     </ul>
@@ -70,7 +70,7 @@
                 </header>
                 <!-- Mobile Logo: centered on mobile only -->
                 <div class="absolute top-0 left-0 right-0 flex justify-center items-center z-[9998] md:hidden pt-4">
-                  <a href="index.html">
+                  <a href="/"> <!-- changed from href="index.html" -->
                     <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
                   </a>
                 </div>
@@ -105,7 +105,7 @@
                     </svg>
                   </label>
                   <ul class="flex flex-col items-center space-y-6 text-lg">
-                    <li><a href="index.html" class="hover:text-gray-400 text-4xl">home.</a></li>
+                    <li><a href="/" class="hover:text-gray-400 text-4xl">home.</a></li> <!-- changed from href="index.html" -->
                     <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
                     <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
                   </ul>

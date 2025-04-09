@@ -189,11 +189,8 @@ $(document).ready(function () {
   if (videoSectionText) videoSectionText.style.transform = "translateY(0)";
   if (videoSectionImage) videoSectionImage.style.transform = "translateY(0)";
 
-  // Ensure the arrow element does not block clicks.
-  const arrow = document.querySelector("#arrow");
-  if (arrow) {
-    arrow.style.pointerEvents = "none";
-  }
+ 
+  
 });
 
 // Initialize Lightbox only if the library is loaded
@@ -224,7 +221,8 @@ window.addEventListener("scroll", function () {
   const videoSection = document.querySelector("#video-section");
   if (!videoSection) return;
   const videoSectionText = videoSection.querySelector("h2");
-  const videoSectionImage = videoSection.querySelector("img");
+  // Exclude images with the "no-parallax" class
+  const videoSectionImage = videoSection.querySelector("img:not(.no-parallax)");
   const scrollPosition = window.scrollY;
   const maxScroll = videoSection.offsetHeight - 200;
 
@@ -243,7 +241,7 @@ window.addEventListener("scroll", function () {
 
 // GSAP parallax effects for elements with .parallax-image and .parallax-text
 document.addEventListener("DOMContentLoaded", function () {
-  gsap.utils.toArray(".parallax-image").forEach((layer) => {
+  gsap.utils.toArray(".parallax-image:not(.no-parallax)").forEach((layer) => {
     const depth = layer.dataset.speed;
     const movement = -(layer.offsetHeight * depth);
     gsap.fromTo(
@@ -274,6 +272,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     );
   });
+
+  // Handle projects-link clicks on every page without changing the URL hash
+  /*
+  document.querySelectorAll("a.projects-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      const projectsSection = document.getElementById("projects");
+      if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", window.location.pathname);
+      } else {
+        window.location.href = "index.html";
+      }
+    });
+  });
+  */
 });
 
 // Fetch and insert SVG content into elements with the .svg-container class
@@ -287,3 +301,19 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((err) => console.error("Error loading SVG:", err));
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const arrow = document.getElementById("arrow");
+  if (arrow) {
+    arrow.style.pointerEvents = "auto"; // Ensure it's enabled.
+    arrow.addEventListener("click", () => {
+      window.scrollBy({
+        top: 100, // adjust as needed to trigger your GSAP animation
+        behavior: "smooth",
+      });
+    });
+  }
+});
+
+
+

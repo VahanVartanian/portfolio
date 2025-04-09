@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vahan is an eCommerce store showcasing products from the brand 'Vahan.' Created to showcase web development and graphic design skills."
+    />
+    <meta name="keywords" content="vahan, eCommerce store, graphic design, web development, online shop" />
+    <meta name="author" content="Vahan Vartanian" />
+    <meta property="og:title" content="Vahan. A Store | Vahan Vartanian" />
+    <meta
+      property="og:description"
+      content="Vahan is an eCommerce store showcasing products from the brand 'Vahan.' Created to showcase web development and graphic design skills."
+    />
+    <meta property="og:image" content="src/mylogo2.jpg" />
+    <meta property="og:url" content="http://www.vahanvartanian.com/vahan-store.html" />
+    <meta property="og:type" content="website" />
+
+    <title>the T5MRKT project. | Vahan Vartanian</title>
+    <link rel="icon" type="image/x-icon" href="/src/mylogo-palepurple.png" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <style>
+      .nav-link {
+        position: relative;
+        padding: 20px 50px;
+      }
+      .svg-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+      .svg-container svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .svg-container svg path {
+        stroke: #8884FF;
+        stroke-width: 5;
+        fill: none;
+        stroke-linecap: round;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        transition: stroke-dashoffset 0.5s ease;
+      }
+      .nav-link:hover .svg-container svg path {
+        stroke-dashoffset: 0;
+      }
+      .nav-link .svg-container svg {
+        transform: scale(0.8);
+        transform-origin: center;
+      }
+    </style>
+  </head>
+  <body class="bg-black text-[#FDE2FF] overflow-x-hidden">
+    <div id="wrapper">
+      <div id="content">
+        <section id="video-section" class="relative h-screen z-10">
+          <div class="absolute inset-0 overflow-hidden">
+            <img
+            class="w-full h-full object-cover brightness-[0.7] contrast-125"
+            data-speed="0.5"
+            src="src/t5mrkt_banner_2.webp"
+            alt="t5mrktbanner"
+          />
+          
+          </div>
+          <div class="absolute inset-0 bg-black/40 z-10">
+            <img
+              src="src/overlay.png"
+              alt="Overlay"
+              class="w-full h-full object-cover opacity-20"
+            />
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center z-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">the T5MRKT project.</h2>
+          </div>
+          <!-- Header inside video section for desktop -->
+          <header class="fixed top-0 left-0 right-0 flex items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
+            <!-- Desktop Logo -->
+            <a href="/" class="hidden md:flex items-center">
+              <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
+            </a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:block">
+              <ul class="flex items-center gap-12 pr-40">
+                <li><a href="/" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a></li>
+                <li><a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a></li>
+                <li><a href="contact.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">contact.</a></li>
+              </ul>
+            </nav>
+          </header>
+          <!-- Mobile Logo: centered on mobile only -->
+          <div class="absolute top-0 left-0 right-0 flex justify-center items-center z-[9998] md:hidden pt-4">
+            <a href="/">
+              <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
+            </a>
+          </div>
+          <!-- Fixed Mobile Hamburger Icon (moved out of header) -->
+          <div class="md:hidden">
+            <label for="menu-toggle" class="fixed top-10 right-4 z-[11000] cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#FDE2FF"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="#FDE2FF"
+                class="w-8 h-8"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </label>
+          </div>
+          <!-- Mobile Navigation Menu -->
+          <input type="checkbox" id="menu-toggle" class="hidden">
+          <nav id="mobile-menu" class="fixed top-0 left-0 w-full bg-[#5D576B] text-[#FDE2FF] h-screen flex flex-col items-center justify-center space-y-8 transform -translate-x-full transition-transform duration-300 md:hidden z-[9999]">
+            <label for="menu-toggle" class="fixed top-4 right-4 z-[11000] cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="white"
+                class="w-8 h-8"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </label>
+            <ul class="flex flex-col items-center space-y-6 text-lg">
+              <li><a href="/" class="hover:text-gray-400 text-4xl">home.</a></li>
+              <li><a href="about.html" class="hover:text-gray-400 text-4xl">about.</a></li>
+              <li><a href="contact.html" class="hover:text-gray-400 text-4xl">contact.</a></li>
+            </ul>
+          </nav>
+          <!-- Divider with higher z-index so it's visible above overlay -->
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden">
+            <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto" />
+          </div>
+        </section>
+        <!-- END VIDEO SECTION -->
+
+        <!-- PROJECT DETAIL SECTION -->
+        <section id="project-detail-1" class="relative bg-[#5D576B] py-12 sm:py-8 md:py-20 z-5">
+          <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
+            <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-30" />
+          </div>
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:flex lg:flex-row justify-center items-center mt-8">
+          
+              <div class="flex flex-col items-center">
+                <img src="src/html.png" alt="HTML5" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">HTML5</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="src/css.png" alt="CSS3" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">CSS3</p>
+              </div>
+              <div class="flex flex-col items-center">
+                <img src="src/javascript.png" alt="JavaScript" class="w-20 sm:w-24 md:w-32 h-auto shadow-lg">
+                <p class="text-xs sm:text-sm md:text-md text-[#FDE2FF] mt-1 sm:mt-2 rock-font">JavaScript</p>
+              </div>
+            </div>
+            <div class="flex flex-col lg:flex-row items-center justify-center mt-16 gap-8 lg:gap-12">
+              <img src="src/t5mrkt-banner.png" alt="Vahan website" class="w-full max-w-[600px] h-auto shadow-xl border-4 border-[#FDE2FF]">
+              <div class="text-left max-w-full md:max-w-md">
+                <p class="rock-font text-xs text-center lg:text-left sm:text-base md:text-lg leading-relaxed text-[#FDE2FF] pb-6">
+                  The goal of this project was to improve T5MRKT’s Shopify site to make shopping smoother and more appealing. This included creating custom collapsible product drawers, updating the About and Shipping pages, and boosting SEO for better visibility. New graphics and a simpler design also helped strengthen T5MRKT’s brand identity, giving customers a clearer, more enjoyable experience.
+                </p>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="process" class="relative bg-[#202020] w-full py-32">
+          <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
+            <img src="src/divider-purple.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180">
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">process.</h2>
+            <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
+              <div class="md:w-1/2 text-left relative">
+                <p class="text-xs sm:text-center text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font">
+                  I started by reviewing the existing Shopify theme and backing it up. This gave me a safe environment to experiment in without affecting the live website. I gathered feedback from stakeholders, noting priority items like the homepage layout, navigation flow, and brand presentation. This phase gave everyone clear goals and ensured we stayed aligned as I moved forward.
+                </p>
+              
+                <img 
+                  src="src/arrow.png" 
+                  alt="Arrow graphic"
+                  class="scale-110 transform hidden md:block absolute left-0 right-0 mx-auto"
+                >
+              </div>
+              <div class="md:w-1/2 text-left relative">
+                <img src="src/t5mrkt-backup.png" alt="File structure" class="hidden sm:block w-full h-auto border-4 border-black shadow-lg ml-24 md:ml-0 mb-8">
+                <p class="text-xs sm:text-base text-center lg:text-left md:text-lg leading-relaxed text-[#FDE2FF] rock-font pt-24">
+                  Next, I redesigned the homepage to highlight different engaging call to actions with refreshed banners, and placed brand call-to-action buttons in more visible positions on the brand tiles. Regular check-ins with stakeholders helped me refine the new homepage design and make sure it fit with T5MRKT’s look and feel.
+                </p>
+
+                <img src="src/t5mrkt-homepage.gif" alt="Homepage redesign" class="w-full h-auto border-4 border-black shadow-lg mt-8">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="process-2" class="relative bg-[#5D576B] w-full py-2 lg:py-32 pb-8">
+          <div class="absolute top-0 left-0 w-full overflow-hidden z-5 rotate-180">
+            <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
+            <img src="src/divider.png" alt="Divider" class="w-full h-auto">
+          </div>
+          <div class="absolute inset-0 bg-black/40"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-40">
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+            <div class="flex flex-col md:flex-row items-start justify-between mt-12 gap-8">
+              <div class="md:w-1/2 text-center">
+                <img src="src/product-drawers.png" alt="product-drawer" class="w-96 h-auto border-black border-4 shadow-lg mx-auto">
+                
+              </div>
+              <div class="md:w-1/2 text-left relative">
+                <p class="text-xs sm:text-base md:text-lg text-center lg:text-left leading-relaxed text-[#FDE2FF] rock-font mb-4">
+                  To simplify product information, I introduced collapsible drawers for descriptions, making it easier for visitors to view details without scrolling endlessly. Icons and bullet points were also added to highlight key product features. This helped customers find what they needed quickly, improving the overall shopping experience. Since T5MRKT's catalogue includes a variety of products, I dynamically sourced each product's description from the Shopify backend meta fields, so the information will always be up to date, relevant, and efficient.
+                </p>
+                <img src="src/arrow-black.png" alt="Arrow graphic" class="transform rotate-[-35deg] mb-4 hidden md:block">
+              </div>
+              </div>
+              
+              <p class="text-xs sm:text-base md:text-lg text-center leading-relaxed text-[#FDE2FF] pb-8 rock-font">
+                Because these pages are crucial for building trust, I revamped the about and shipping info page, and added engaging visuals, clear brand listings, and easy-to-read shipping policies. The goal was to make sure customers quickly find the information they need and feel confident in T5MRKT’s overall brand.
+              </p>
+              
+              <!-- Two Images Side by Side with Captions -->
+              <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-4">
+                <!-- About Page Screenshot -->
+                <div class="text-center">
+                  <a href="src/t5mrkt-about.gif" data-lightbox="gallery" data-title="T5MRKT About Page">
+                    <img 
+                      src="src/t5mrkt-about.gif" 
+                      alt="About Page" 
+                      class="w-[32rem] h-auto mx-auto border-4 border-black shadow-lg transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
+                  <p class="mt-2 text-xs sm:text-sm md:text-base rock-font text-[#FDE2FF]">
+                    About Page
+                  </p>
+                </div>
+              
+                <!-- Shipping Page Screenshot -->
+                <div class="text-center">
+                  <a href="src/shipping-policy-page.png" data-lightbox="gallery" data-title="Shipping Policy Page">
+                    <img 
+                      src="src/shipping-policy-page.png" 
+                      alt="Shipping Page" 
+                      class="w-[32rem] h-auto mx-auto border-4 border-black shadow-lg transition-transform duration-300 hover:scale-105"
+                    />
+                  </a>
+                  <p class="mt-2 text-xs sm:text-sm md:text-base rock-font text-[#FDE2FF]">
+                    Shipping Page
+                  </p>
+                </div>
+              </div>
+              
+          
+        </section>
+
+        <section id="end-product" class="relative bg-[#202020] w-full py-8">
+          <div class="absolute inset-0 bg-black/40 z-10"></div>
+          <img src="src/overlay.png" alt="Overlay" class="absolute inset-0 w-full h-full object-cover opacity-[37%] rotate-180 z-10">
+          <div class="relative z-30 max-w-6xl mx-auto text-center">
+            <p class="text-xs sm:text-base md:text-lg text-center leading-relaxed text-[#FDE2FF] pb-12 rock-font">
+              In the final phase, I tested every feature. The collapsible drawers, mobile layouts, SEO adjustments, and the new branding elements while keeping stakeholders updated on any last-minute adjustments. Once everything was approved, I pushed the site live, and the end product was a smoother, more engaging, and reliable experience for T5MRKT’s customers.
+            </p>
+          
+            </div>
+            <div class="relative z-40 flex justify-center items-center">
+              <a href="https://t5mrkt.com" class="cursor-pointer">
+                <div class="relative flex items-center justify-center w-64 h-20 transition-transform duration-300 transform hover:scale-110">
+                  <!-- CTA Background Image -->
+                  <img src="src/cta.svg" alt="Call to Action" class="w-64 h-16" />
+                  <!-- Overlaid Text -->
+                  <h3 class="absolute inset-0 flex items-center justify-center text-2xl font-bold text-[#FDE2FF]">
+                    visit t5mrkt.
+                  </h3>
+                </div>
+              </a>
+            </div>
+            <div class="pt-16 relative z-30 flex justify-between items-center max-w-6xl mx-auto text-center py-4">
+              <a href="project-detail-2.html" class="nav-link flex-1 text-center pr-4 sm:pr-8 md:pr-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">previous<br>project</h2>
+              </a>
+              <a href="project-detail-3.html" class="nav-link flex-1 text-center pl-4 sm:pl-8 md:pl-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold hover:text-[#8884FF]">next<br>project</h2>
+              </a>
+            </div>
+            <div class="flex justify-center py-8">
+              <a href="#top" class="nav-link text-[#FDE2FF] text-3xl hover:text-[#8884FF] transition-colors duration-300 z-[9999]">
+                back to top.
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="w-full h-auto bg-[#FDE2FF] flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 py-8">
+            <img src="src/mylogo2.png" class="h-24 sm:h-36 w-auto mb-4 md:mb-0" alt="footer-logo" />
+            <div class="flex flex-col items-center text-center md:w-full md:mr-32">
+              <p class="text-black text-lg sm:text-2xl md:text-3xl">
+                COLLABORATIONS & <br /> INQUIRIES - ALWAYS WELCOME
+              </p>
+              <div class="flex gap-4 sm:gap-6 mt-4">
+                <a href="https://instagram.com/vahvn" class="text-black text-sm sm:text-base hover:underline">Instagram</a>
+                <a href="https://www.linkedin.com/in/vahan-vartanian-63ab72315/?originalSubdomain=ca" class="text-black text-sm sm:text-base hover:underline">LinkedIn</a>
+                <a href="mailto:vmog33@gmail.com" class="text-black text-sm sm:text-base hover:underline">Email</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,7 +45,7 @@
         <!-- VIDEO SECTION -->
         <section id="video-section" class="relative h-screen z-10">
           <div class="absolute inset-0 overflow-hidden">
-            <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="src/poster.png">
               <source src="src/sky.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -55,32 +55,32 @@
             <img
               src="src/overlay.png"
               alt="Overlay"
-              class="w-full h-full object-cover opacity-20"
+              class="w-full h-full object-cover opacity-20 no-parallax"
             />
           </div>
           <div class="absolute inset-0 flex items-center justify-center z-[99]">
-            <h2 class="text-3xl md:text-4xl font-bold text-[#FDE2FF] parallax-text">about me.</h2>
+            <h2 class="text-3xl md:text-6xl font-bold text-[#FDE2FF] parallax-text">hi. I'm vahan</h2>
           </div>
 
           <!-- Header inside video section (for desktop) -->
           <header class="fixed top-0 left-0 right-0 flex flex-col md:flex-row items-center justify-between px-4 md:px-8 z-[9999] py-4 bg-transparent">
             <!-- Mobile Logo: centered on mobile only -->
             <div class="w-full flex justify-center md:hidden">
-              <a href="index.html">
+              <a href="/"> <!-- changed from "index.html" -->
                 <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
               </a>
             </div>
             <!-- Desktop Logo and Navigation (desktop only) -->
             <div class="hidden md:flex items-center justify-between w-full">
               <!-- Desktop Logo: left aligned -->
-              <a href="index.html" class="flex items-center">
+              <a href="/" class="flex items-center"> <!-- changed from "index.html" -->
                 <img src="src/my-logo-silver.gif" alt="Logo" class="w-40 sm:w-32 md:w-48 h-auto" />
               </a>
               <!-- Desktop Navigation on the right -->
               <nav>
                 <ul class="flex items-center gap-12 pr-40">
                   <li>
-                    <a href="index.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a>
+                    <a href="/" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">home.</a> <!-- changed from "index.html" -->
                   </li>
                   <li>
                     <a href="about.html" class="text-sm md:text-2xl lg:text-3xl hover:text-[#8884FF]">about.</a>
@@ -138,15 +138,18 @@
         <!-- END VIDEO SECTION -->
 
         <!-- ABOUT CONTENT -->
-        <section id="about" class="relative bg-[#5D576B] mobile-negative-top">
+        <section id="about" class="relative bg-[#5D576B] mobile-negative-top md:pb-64">
+          
           <div class="absolute bottom-0 left-0 w-full overflow-hidden z-5">
             <img src="src/divider.png" alt="Divider" class="w-full h-auto" />
           </div>
-          <div class="absolute inset-0 bg-black/40 z-6 pointer-events-none">
-            <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20 rotate-180" />
+          
+          <div class="absolute inset-0 bg-black/40 pointer-events-none">
+            <img src="src/overlay.png" alt="Overlay" class="w-full h-full object-cover opacity-20 rotate-180 no-parallax" />
           </div>
-          <div class="relative z-10 max-w-6xl mx-auto text-center lg:bottom-40 px-4 md:px-8">
-            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center h-full gap-8">
+          <div class="relative z-30 max-w-6xl mx-auto text-center px-4">
+      
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8">
               <img src="src/me.jpg" alt="me" class="w-64 h-auto lg:w-96 shadow-xl mb-8 lg:mb-0 rounded-lg" />
               <div class="lg:ml-8 max-w-md text-center lg:text-left">
                 <p class="rock-font text-sm sm:text-base md:text-lg leading-relaxed pt-4">
@@ -155,8 +158,8 @@
                 <p class="rock-font text-sm sm:text-base md:text-lg leading-relaxed pt-6">
                   Approaching my graduation at BCIT, I have perfected my skills in various design and development tools. My journey through the New Media program has given me extensive knowledge in a variety of development and design tools, from branding to web design.
                 </p>
-                <div class="arrow-container mt-12 pt-[58px]">
-                  <img src="src/up-arrow-svgrepo-com.svg" alt="Down Arrow" class="arrow-icon mx-auto rotate-180 w-16 pt-24">
+                <div id="scroll-arrow" class="arrow-container rotate-180 pb-6 mt-12 cursor-pointer">
+                  <img src="src/up-arrow-svgrepo-com.svg" alt="Down Arrow" class="animate-bounce mx-auto w-16" />
                 </div>
               </div>
             </div>
@@ -263,7 +266,8 @@
                 </p>
               </div>
               <div class="text-center">
-                <img src="src/young-me-and-dad.png" alt="my dad and i" class="w-full sm:w-72 md:w-[400px] lg:w-[500px] h-auto shadow-lg">
+                <img src="src/young-me-and-dad.png" alt="my dad and i" class="w-full sm:w-72 md:w-[400px] lg:w-[500px] h-auto shadow-lg transition duration-500 grayscale hover:grayscale-0 border-4 border-[#FDE2FF]" />
+
                 <p class="text-[#FDE2FF] mt-4 rock-font">My Dad and I circa 2010.</p>
               </div>
             </div>
@@ -289,5 +293,18 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <!-- Removed jQuery-based animation scripts -->
+    <script>
+      // Vanilla JavaScript smooth scroll animation for the scroll arrow
+      document.getElementById("scroll-arrow").addEventListener("click", function(e) {
+        e.preventDefault();
+        const skillsSection = document.getElementById("skills");
+        if (skillsSection) {
+          window.scrollTo({ top: skillsSection.offsetTop, behavior: "smooth" });
+        }
+      });
+    </script>
   </body>
 </html>
+
+
